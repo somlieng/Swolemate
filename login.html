@@ -29,7 +29,7 @@
 	$(document).ready(function() {
 
 				if(localStorage.getItem("email") != null) {
-		        	window.location.href = "frontpage";
+		        	window.location.href = "dashboard";
 		        }
 
 
@@ -52,25 +52,23 @@
 	      success: function( data ) {
 	        console.log("You received some data!", data);
 	         if (data == 'OK') {
-	          window.location.href = "frontpage.html";
+	          window.location.href = "dashboard.html";
 	          var storeEmail = document.getElementById("inputEmail");
 	          localStorage.setItem("email",storeEmail.value);
-	          window.location.href = "frontpage";
+	            var storePass = document.getElementById("inputPassword");
+	          localStorage.setItem("password",storePass.value);
+	          window.location.href = "dashboard";
 
-	          window.location.href = "frontpage.html";
-	          var storeEmail = document.getElementById("inputEmail");
-	          localStorage.setItem("email",storeEmail.value);
-
-	          window.location.href = "frontpage";
-
+	        
+	       
 	        }  else {
-	          $("#status").html("Error: could not create a new user!");
+	          $("#status").html("Error: could not sign in user!");
 	        }
 	      },
 	    });
 	  });
 	  $("#registerButton").click(function() {
-	  	window.location.href = "register";
+	  	window.location.href = "signup";
 
 	  });
 	});
@@ -99,8 +97,9 @@
 		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 		        <label for="inputPassword" class="sr-only">Password</label>
 		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-		        <button class="btn btn-lg btn-primary btn-block" type="submit" id="signinButton">Sign in</button>
-		        <button class="btn btn-lg btn-primary btn-block" type="submit" id="registerButton">Register</button>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit" id="signinButton">Log in</button>
+		    </br>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit" id="registerButton">Sign Up</button>
 
 		      </div> 
 
