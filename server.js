@@ -2,7 +2,10 @@
 // Prerequisites - first run:
 //   npm install express
 //   npm install body-parser
+//   npm install sqlite3
 
+
+//TODO: make emails unique (currently only usernnames are unique)
 var express = require('express');
 var app = express();
 
@@ -11,7 +14,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.use(express.static('static_files'));
+app.use(express.static('site_files'));
 
 var fs = require("fs");
 var file = "users.db";
@@ -33,7 +36,7 @@ app.use(express.static('site_files'));
 // CREATE a new user
 app.post('/users', function (req, res) {
   var postBody = req.body;
-  var email = postbody.email;
+  var email = postBody.email;
   var username = postBody.username;
   var password = postBody.password;
   var first = postBody.firstname;
@@ -46,7 +49,7 @@ app.post('/users', function (req, res) {
     return; // return early!
   }
 //insert USER into database db
-  db.run("INSERT INTO users VALUES (?,?,?,?,?)", email, username, password, firstname, lastname, function(err,result)
+  db.run("INSERT INTO users VALUES (?,?,?,?,?)", email, password, username, first, last, function(err,result)
   {
 	 if (err)
 	 {res.send('error');}
@@ -59,18 +62,17 @@ app.post('/users', function (req, res) {
 ///logging in
 app.post('/users/*', function (req, res) {
   var postBody = req.body;
-  var usernameToLookup = postBody.username; // this matches the '*' part of '/users/*' above
+  var usernameToLookup = postBody.username;
   var givenPassword = postBody.password;
-  // try to look up in fakeDatabase
-    db.each("SELECT * FROM users WHERE name = \"" + usernameToLookup + "\"", function(err, rows){
-      if(rows.name == null){
+    db.each("SELECT * FROM users WHERE username = \"" + usernameToLookup + "\"", function(err, rows){
+      if(rows.username == null){
         console.log("No response");
         res.send('error');
         return;
       }else if(rows.password == givenPassword){
-        console.log("Hello, " + rows.name);
+        console.log("Hello, " + rows.username);
         console.log("password matched, sending");
-        res.send('/loggedIn.html');
+        res.send('/dashboard.html');
         return;
       }
       else{

@@ -10,6 +10,7 @@
 		<!-- Title for the page -->
 		<title>Login to SwoleMate</title>
 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<!-- Bootstrap Framework Dependencies -->
 		
 		<!-- Latest compiled and minified CSS-->
@@ -23,12 +24,12 @@
 		<link href="login.css" rel="stylesheet">
 
 		 
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  
 
     <script type="text/javascript">
 	$(document).ready(function() {
 
-				if(localStorage.getItem("email") != null) {
+				if(localStorage.getItem("username") != null) {
 		        	window.location.href = "dashboard";
 		        }
 
@@ -42,19 +43,19 @@
 	    $("#signinButton").click(function() {
 	    $.ajax({
 	      // The URL for the request -- note the simple REST API!
-	      // all URLs are relative to http://localhost:3000/
-	      url: "login/",
+	      // all URLs are relative to http://localhost:1111/
+	      url: "users/" + $("#inputUsername").val(),
 	      type: "POST",
 	      dataType : "text", // this URL returns a plain text string, not JSON
 	      data : { password: $("#inputPassword").val(),
-	               email: $("#inputEmail").val()
+	               username: $("#inputUsername").val()
 	             },
 	      success: function( data ) {
 	        console.log("You received some data!", data);
 	         if (data == 'OK') {
 	          window.location.href = "dashboard.html";
-	          var storeEmail = document.getElementById("inputEmail");
-	          localStorage.setItem("email",storeEmail.value);
+	          var storeUsername = document.getElementById("inputUsername");
+	          localStorage.setItem("username",storeUsername.value);
 	            var storePass = document.getElementById("inputPassword");
 	          localStorage.setItem("password",storePass.value);
 	          window.location.href = "dashboard";
@@ -93,8 +94,8 @@
 		      <div class="form-signin">
 
 		        <h2 class="form-signin-heading">Please sign in</h2>
-		        <label for="inputEmail" class="sr-only">Email address</label>
-		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		        <label for="inputUsername" class="sr-only">Username</label>
+		        <input type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
 		        <label for="inputPassword" class="sr-only">Password</label>
 		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 		        <button class="btn btn-lg btn-primary btn-block" type="submit" id="signinButton">Log in</button>
