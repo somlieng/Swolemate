@@ -1,4 +1,7 @@
 
+//TODO: fix line 69 with content  "if(rows.username != usernameToLookup)". It doesn't work. I want to check if the username exists.
+
+
 // Prerequisites - first run:
 //   npm install express
 //   npm install body-parser
@@ -25,7 +28,7 @@ var db = new sqlite3.Database(file);
 
 db.serialize(function() {
   if(!exists){
-    db.run("CREATE TABLE users (email TEXT, password TEXT, username TEXT, firstname TEXT, lastname TEXT, PRIMARY KEY (username))");
+    db.run("CREATE TABLE users (email TEXT, password TEXT, username TEXT, firstname TEXT, PRIMARY KEY (username))");
   }
 });
 
@@ -40,16 +43,33 @@ app.post('/users', function (req, res) {
   var username = postBody.username;
   var password = postBody.password;
   var first = postBody.firstname;
-  var last = postBody.lastname;
+ // var last = postBody.lastname;
 
 
   // must fill in all slots
-  if (!username||!password||!first||!last||!email) {
-    res.send('ERROR');
+  if (!username) {
+    res.send("Error: Username is undefined.");
+
+    return; // return early!
+  }
+  else if (!password) {
+    res.send("Error: Password is undefined.");
+
+    return; // return early!
+  }
+  else if (!first) {
+    res.send("Error: First Name is undefined.");
+
+    return; // return early!
+  }
+  else if (!email) {
+    res.send("Error: Email is undefined.");
+
     return; // return early!
   }
 //insert USER into database db
-  db.run("INSERT INTO users VALUES (?,?,?,?,?)", email, password, username, first, last, function(err,result)
+//removed last name
+  db.run("INSERT INTO users VALUES (?,?,?,?)", email, password, username, first, function(err,result)
   {
 	 if (err)
 	 {res.send('error');}
@@ -65,14 +85,14 @@ app.post('/users/*', function (req, res) {
   var usernameToLookup = postBody.username;
   var givenPassword = postBody.password;
     db.each("SELECT * FROM users WHERE username = \"" + usernameToLookup + "\"", function(err, rows){
-      if(rows.username == null){
-        console.log("No response");
+      if(rows.username != usernameToLookup){ 
+        console.log("No user with that username was found.");
         res.send('error');
         return;
       }else if(rows.password == givenPassword){
         console.log("Hello, " + rows.username);
         console.log("password matched, sending");
-        res.send('/dashboard.html');
+        res.send('OK');
         return;
       }
       else{

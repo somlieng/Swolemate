@@ -19,18 +19,17 @@
 
 		<!-- Latest compiled and minified JavaScript -->
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>-->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 		<link href="login.css" rel="stylesheet">
 
-		 
-  
+
 
     <script type="text/javascript">
 	$(document).ready(function() {
 
 				if(localStorage.getItem("username") != null) {
-		        	window.location.href = "dashboard";
+		        	window.location = "/dashboard.html";
 		        }
 
 
@@ -47,20 +46,15 @@
 	      url: "users/" + $("#inputUsername").val(),
 	      type: "POST",
 	      dataType : "text", // this URL returns a plain text string, not JSON
-	      data : { password: $("#inputPassword").val(),
-	               username: $("#inputUsername").val()
+	      data : { 	username: $("#inputUsername").val(),
+	      			password: $("#inputPassword").val()
 	             },
 	      success: function( data ) {
 	        console.log("You received some data!", data);
 	         if (data == 'OK') {
-	          window.location.href = "dashboard.html";
-	          var storeUsername = document.getElementById("inputUsername");
-	          localStorage.setItem("username",storeUsername.value);
-	            var storePass = document.getElementById("inputPassword");
-	          localStorage.setItem("password",storePass.value);
-	          window.location.href = "dashboard";
-
-	        
+	          window.location= "/dashboard.html";
+	       	localStorage.setItem("username", $("#inputUsername").val());
+	      	localStorage.setItem("password", $("#inputPassword").val());
 	       
 	        }  else {
 	          $("#status").html("Error: could not sign in user!");
@@ -68,10 +62,7 @@
 	      },
 	    });
 	  });
-	  $("#registerButton").click(function() {
-	  	window.location.href = "signup";
-
-	  });
+	 
 	});
 
 	 </script>
@@ -79,6 +70,16 @@
 	</head>
 
 	<body >
+
+		<div class="header">
+	<a href="/home.html">
+<img class = "toplogo" src="./icon/SwoleMateIcon.png"/>
+</a>
+<a href="/signup.html">
+	<img class = "getStarted" src="./getStarted.png"/>
+</a>
+	<p class="member">Not a member?</p>
+</div> <!-- /header -->
 	
 	<div class="container">
 
@@ -95,12 +96,13 @@
 
 		        <h2 class="form-signin-heading">Please sign in</h2>
 		        <label for="inputUsername" class="sr-only">Username</label>
-		        <input type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+		        <input type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus> <br>
 		        <label for="inputPassword" class="sr-only">Password</label>
 		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		        </br>
 		        <button class="btn btn-lg btn-primary btn-block" type="submit" id="signinButton">Log in</button>
-		    </br>
-		        <button class="btn btn-lg btn-primary btn-block" type="submit" id="registerButton">Sign Up</button>
+		  
+		       
 
 		      </div> 
 
@@ -112,5 +114,6 @@
 
 	    </div> <!-- /container -->
 	
+	<div class="footer"></div>
 	</body>
 </html>

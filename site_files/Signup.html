@@ -1,3 +1,5 @@
+<!-- TODO: There's padding or magins for one of the fields on the form. Look into and make them all evenly spaced. -->
+
 <html lang="en">
 	
 	<head>
@@ -19,11 +21,14 @@
 
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
+
+
+
     <script type="text/javascript">
 	$(document).ready(function() {
 
-		if(localStorage.getItem("email") != null) {
-		   	window.location.href = "frontpage";
+		if(localStorage.getItem("password") != undefined&&localStorage.getItem("username") != undefined&&localStorage.getItem("password") != null&&localStorage.getItem("username") != null) {
+		   	window.location = "/dashboard.html";
 		}
 
 	  // define a generic Ajax error handler:
@@ -41,15 +46,17 @@
 	      dataType : "text", // this URL returns a plain text string, not JSON
 	      data : { password: $("#inputPassword").val(),
 	               email: $("#inputEmail").val(),
-	               username: $("#inputuserName").val(),
-	               firstname: $("#inputfirstName").val(),
-	               lastname: $("#inputlastName").val()
+	               username: $("#inputUsername").val(),
+	               firstname: $("#inputFirstName").val(),
+	               // lastname: $("#inputlastName").val()
 	             },
 	      success: function( data ) {
-	      	localStorage.setItem("email",storeEmail.value);
-	        console.log("You received some data!", data);
+	      	localStorage.setItem("password", $("#inputPassword").val());
+	      	localStorage.setItem("username", $("#inputUsername").val());
+	        console.log("You received some data!" , data);
+	        console.log($("#inputUsername").val());
 	        if (data == 'OK') {
-	          window.location.href = "frontpage.html";
+	          window.location = "./dashboard.html";
 	        } else {
 	          $("#status").html("Error: could not create a new user!");
 	        }
@@ -63,7 +70,14 @@
 	</head>
 
 	<body >
-	
+	<div class="header">
+	<a href="/home.html">
+<img class = "toplogo" src="./icon/SwoleMateIcon.png"/>
+</a>
+<a href="/login.html">
+	<img class = "login" src="./loginbutton.jpg"/>
+</a>
+	<p class="member">Already a member?</p></div> <!--/header-->
 	<div class="container">
 
 		<div class="row vertical-center-row">
@@ -75,7 +89,7 @@
   			<div class="panel-body" id="panel-bg">
 	   
 			 <div class="form-signin"> 
-		        <h2 class="form-signin-heading">Sign Up Here</h2>
+		        <h2 class="form-signin-heading">Sign Up</h2>
 
 		        <label for="inputEmail" class="sr-only">enter your email address</label>
 		        <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required autofocus>
@@ -84,20 +98,18 @@
 		        <label for="inputPassword" class="sr-only">enter your password</label>
 		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
+		
+		        <label for="inputUsername" class="sr-only">enter your username</label>
+		        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required>
 		        <br>
-		        <label for="inputuserName" class="sr-only">enter your username</label>
-		        <input type="text" id="inputuserName" class="form-control" placeholder="Username" required>
-		        <br>
-
-		        <br>
-		        <label for="inputfirstName" class="sr-only">enter your first name</label>
-		        <input type="text" id="inputfirstName" class="form-control" placeholder="First Name" required>
-		        <br>
-
-		        <br>
-		        <label for="inputlastName" class="sr-only">enter your last name</label>
+		        <label for="inputFirstName" class="sr-only">enter your first name</label>
+		        <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required>
+		     
+				<br>
+		    
+		      <!--   <label for="inputlastName" class="sr-only">enter your last name</label>
 		        <input type="text" id="inputlastName" class="form-control" placeholder="Last Name" required>
-		        <br>
+		        <br> -->
 
 		       <button class="btn btn-lg btn-primary btn-block" type="submit" id="createButton">Create New Account</button>
 		    </div> 
@@ -110,6 +122,7 @@
 
 	    </div> <!-- /container -->
 	    <div id="status"></div>
+	    <div class="footer"></div>
 	
 	</body>
 </html>

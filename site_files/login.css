@@ -1,14 +1,63 @@
-body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
+
+
+html, body, {
+    height: 100%;
 }
 
-html, body, .container {
-    height: 100%;
+.header {
+ display:block;
+ background-color: #152b39;
+ height:20%;
+ width:100%;
+ margin:0px auto;
+ border:1px solid black;
+
+}
+
+.toplogo
+{
+  margin:3px 0px 0px 30px;
+  height:110px;
+  width:110px;
+  display: block;
+  float:left;
+  
+}
+
+.member
+{
+margin:45px 20px 0px 0px;
+font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+display: block;
+font-size:130%;
+color:white;
+float:right;
+}
+
+.getStarted
+{
+  margin:38px 50px 0px 0px;
+  float:right;
+  height:40px;
+  width:150px;
+  border: 1px solid black;
+}
+.footer
+{
+  height:10%;
+   width:100%;
+   background-color: #152b39;
+   border: 1px solid black;
+
 }
 .container{
     display: table;
+    height: 70%;
+    width: 100%;
+     padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+
 }
 .vertical-center-row {
     display: table-cell;
@@ -54,3 +103,8 @@ html, body, .container {
   max-width: 300;
 }
 
+.didot
+{
+  font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+  text-align: center;
+}
