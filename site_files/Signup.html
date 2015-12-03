@@ -54,7 +54,6 @@
 	      	localStorage.setItem("password", $("#inputPassword").val());
 	      	localStorage.setItem("username", $("#inputUsername").val());
 	        console.log("You received some data!" , data);
-	        console.log($("#inputUsername").val());
 	        if (data == 'OK') {
 	          window.location = "./dashboard.html";
 	        } else {
@@ -92,18 +91,18 @@
 		        <h2 class="form-signin-heading">Sign Up</h2>
 
 		        <label for="inputEmail" class="sr-only">enter your email address</label>
-		        <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required autofocus>
+		        <input type="email" maxlength="30" id="inputEmail" class="form-control" placeholder="Email Address" required autofocus>
 		        
 		        <br>
-		        <label for="inputPassword" class="sr-only">enter your password</label>
-		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		        <label for="inputPassword"  class="sr-only">enter your password</label>
+		        <input type="password" maxlength="20" id="inputPassword" class="form-control" placeholder="Password" required>
 
 		
 		        <label for="inputUsername" class="sr-only">enter your username</label>
-		        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required>
+		        <input type="text" maxlength="20" id="inputUsername" class="form-control" placeholder="Username" required>
 		        <br>
-		        <label for="inputFirstName" class="sr-only">enter your first name</label>
-		        <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required>
+		        <label for="inputFirstName"  class="sr-only">enter your first name</label>
+		        <input type="text" maxlength="15" id="inputFirstName" class="form-control" placeholder="First Name" required>
 		     
 				<br>
 		    

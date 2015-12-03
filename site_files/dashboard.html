@@ -1,3 +1,7 @@
+<!-- TODO: Didot isn't working as a class. Needs fixed.-->
+<!-- Plan: All items will be on this page, and their opacity will change depending on which option in the toolbar to the left is chosen -->
+
+
 <html>
 <head>
 	<style type="text/css">
@@ -60,6 +64,19 @@ float:right;
 	
 }
 
+.menu
+{
+	float:left;
+	width:20%;
+	font-size:130%;
+	padding-top: 20px;
+}
+
+td
+{
+	border: 1px solid black;
+	font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+}
 .footer
 {
 	height:10%;
@@ -68,15 +85,83 @@ float:right;
 	 border: 1px solid black;
 
 }
+
+.survey
+{
+	overflow:auto;
+	margin-right: 20px;
+	margin-top: 20px;
+	border:1px solid black;
+	height:90%;
+	width:75%;
+	float:right;
+	
+
+}
 </style>
 
 </head>
 <body>
 <div class="header">
 <img class = "toplogo" src="./icon/SwoleMateIcon.png"/>
+	</div> <!--/header-->
+	
+<div class="content">
+
+
+<table class="menu">
+		<tr>
+	<td>
+Update Your Profile
+	</td>
+</tr>
+	<tr>
+	<td>
+Improve Your Matches
+	</td>
+</tr>
+<tr>
+	<td>
+	View Your Matches
+	</td>
+</tr>	
+</table>
+
+<!-- These questions aren't finished, nor are they the correct questions we should be asking. We need a better way to enumerate these values. Still working on it -->
+<div class="survey" method="get">
+	<center><h2>SwoleMate Match-Finding Survey</h2>
+	<h4>Please fill out these questions to help us find the perfect gym partners for you.</h4></center> <!--/form header-->
+<form>
+	<p>
+	What kind of exercise do you do? Please check all that apply.<br>
+	 <input type="checkbox" name="kind" value="Weight Lifting"> Weight Lifting<br>
+	  <input type="checkbox" name="kind" value="Cardio"> Cardio<br>
+  <input type="checkbox" name="kind" value="Group Sports"> Group Sports<br>
+  <input type="checkbox" name="kind" value=""> another option<br>
+    <input type="checkbox" name="kind" value=""> another option<br><br>
+
+    When you work out with a partner, is their fitness level:<br>
+	 <input type="checkbox" name="level" value="Less Advanced"> Less Advanced<br>
+	  <input type="checkbox" name="level" value="Slightly Less Advanced"> Slightly Less Advanced<br>
+  <input type="checkbox" name="level" value="The Same"> The Same<br>
+  <input type="checkbox" name="level" value="Slightly More Advanced"> Slightly More Advanced<br>
+    <input type="checkbox" name="level" value="More Advanced"> More Advanced<br><br>
+
+    Which activities do you prefer a partner/group for: Please check all that apply.<br>
+	 <input type="checkbox" name="partner" value="Weight Lifting"> Weight Lifting<br>
+	  <input type="checkbox" name="partner" value="Cardio"> Cardio<br>
+  <input type="checkbox" name="partner" value="Group Sports"> Group Sports<br>
+  <input type="checkbox" name="partner" value=""> another option<br>
+    <input type="checkbox" name="partner" value=""> another option<br>
+
+
+</p>
+	  <input type="submit" value="Submit">
+</form>
+
 	</div>
-<div class="content"></div>
-<div class="footer"></div>
+</div> <!--/content-->
+<div class="footer"></div> <!--/footer-->
 	</body>
 	</html>
 
