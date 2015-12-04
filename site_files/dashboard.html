@@ -4,6 +4,21 @@
 
 <html>
 <head>
+	
+	<!-- Javascript -->
+<script type = "text/javascript">
+
+      function showText(x){
+
+        var e = document.getElementById(x);
+        if(e.style.display == 'none')
+          e.style.display = 'block';
+        else
+          e.style.display = 'none';
+      }
+    </script>
+
+	<style type="text/css">
 	<style type="text/css">
 
 .header {
@@ -134,9 +149,47 @@ Improve Your Matches
 <form>
 	<p>
     Which activities do you prefer a partner/group for? (Check all that apply)<br>
-	 <input type="checkbox" name="partner" value="weight lifting"> Weight Lifting<br>
-	  <input type="checkbox" name="partner" value="cardio"> Cardio<br>
-	   <input type="checkbox" name="partner" value="running"> Running<br>
+	 <input type="checkbox" onclick="showText('spot');" name="partner" value="weight lifting"> Weight Lifting<br>
+	 	<div style="display: none;" id="spot">
+        		What is the highest weight level you need to be spotted for?<br>
+        		<input type="radio">50 lbs<br>
+        		<input type="radio">100 lbs<br>
+        		<input type="radio">150 lbs<br>
+        		<input type="radio">200 lbs<br>
+        		<input type="radio">250 lbs<br>
+        		<input type="radio">300+ lbs
+      		</div><br>
+	  <input type="checkbox" onclick="showText('crdio');" name="partner" value="cardio"> Cardio<br>
+	  	<div style="display:none;" id="crdio">
+	  		What cardio activities do you like to do?<br>
+	  		<input type="checkbox">Elliptical<br>
+	  		<input type="checkbox">Bike<br>
+	  		<input type="checkbox">Stairmaster<br>
+	  		<input type="checkbox">Other<br>
+	  		What cardio activities would you like to do with a partner?<br>
+	  		<input type="checkbox">Elliptical<br>
+	  		<input type="checkbox">Bike<br>
+	  		<input type="checkbox">Stairmaster<br>
+	  		<input type="checkbox">Other<br>
+	  		How long do you usually do cardio for?<br>
+	  		<input type="radio">0-30min<br>
+	  		<input type="radio">30min-1hr<br>
+	  		<input type="radio">1-1.5hrs<br>
+	  		<input type="radio">1.5hrs+<br>
+	  	</div>
+	   <input type="checkbox" onclick="showText('run');" name="partner" value="running"> Running<br>
+	   	<div style="display:none;" id="run">
+	   		How long do you usually run for?<br>
+	   		<input type="radio">0-30min<br>
+	  		<input type="radio">30min-1hr<br>
+	  		<input type="radio">1-1.5hrs<br>
+	  		<input type="radio">1.5hrs+<br>
+	   		Where do you like to run?<br>
+	   		<input type="checkbox">Indoor track<br>
+	   		<input type="checkbox">Outdoor track<br>
+	   		<input type="checkbox">Treadmill<br>
+	   		<input type="checkbox">Outside<br>
+	   	</div>
 	    <input type="checkbox" name="partner" value="fitness classes"> Fitness Classes<br>
   <input type="checkbox" name="partner" value="basketball"> Basketball<br>
    <input type="checkbox" name="partner" value="tennis"> Tennis<br>
