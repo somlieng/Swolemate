@@ -4,6 +4,19 @@
 
 <html>
 <head>
+    
+    <!-- Javascript -->
+<script type = "text/javascript">
+
+      function showText(x){
+
+        var e = document.getElementById(x);
+        if(e.style.display == 'none')
+          e.style.display = 'block';
+        else
+          e.style.display = 'none';
+      }
+    </script>
 
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -189,20 +202,39 @@ td
 <form>
     <p>
     Which activities do you prefer a partner/group for? (Check all that apply)<br>
-     <input type="checkbox" name="partner" value="weight lifting"> Weight Lifting<br>
-      <input type="checkbox" name="partner" value="cardio"> Cardio<br>
-       <input type="checkbox" name="partner" value="running"> Running<br>
-        <input type="checkbox" name="partner" value="fitness classes"> Fitness Classes<br>
-  <input type="checkbox" name="partner" value="basketball"> Basketball<br>
-   <input type="checkbox" name="partner" value="tennis"> Tennis<br>
+    
+    <!-- WEIGHTLIFTING -->
+    <input type="checkbox" name="partner" value="weight lifting"> Weight Lifting<br>
+        <div class=”weightLifting”>
+            What is the highest weight level you will need to be spotted for? (Check one)<br>
+            <input type="radio" name="highest" value="none"> I don't need to be spotted.<br>
+            <input type="radio" name="highest" value="50"> 50LBS<br>
+            <input type="radio" name="highest" value="100"> 100LBS<br>
+            <input type="radio" name="highest" value="150"> 150LBS<br>
+            <input type="radio" name="highest" value="200"> 200LBS<br>
+            <input type="radio" name="highest" value="250"> 250LBS<br>
+            <input type="radio" name="highest" value="300"> 300LBS+<br>
+    
+            What is the highest weight level you can spot someone else for? (Check one)<br>
+            <input type="radio" name="spotting" value="50"> 50LBS<br>
+            <input type="radio" name="spotting" value="100"> 100LBS<br>
+            <input type="radio" name="spotting" value="150"> 150LBS<br>
+            <input type="radio" name="spotting" value="200"> 200LBS<br>
+            <input type="radio" name="spotting" value="250"> 250LBS<br>
+            <input type="radio" name="spotting" value="300"> 300LBS+<br>
+        </div>
+    <input type="checkbox" name="partner" value="cardio"> Cardio<br>
+    <input type="checkbox" name="partner" value="running"> Running<br>
+    <input type="checkbox" name="partner" value="fitness classes"> Fitness Classes<br>
+    <input type="checkbox" name="partner" value="basketball"> Basketball<br>
+    <input type="checkbox" name="partner" value="tennis"> Tennis<br>
     <input type="checkbox" name="partner" value="badminton"> Badminton<br>
-     <input type="checkbox" name="partner" value="squash"> Squash<br>
+    <input type="checkbox" name="partner" value="squash"> Squash<br>
     <input type="checkbox" name="partner" value="swimming"> Swimmming<br>
-     <input type="checkbox" name="partner" value=""> Soccer<br>
+    <input type="checkbox" name="partner" value=""> Soccer<br>
 
    What is your gender? (Check one)<br>
     <input type="radio" name="gender" value="male"> Male   <input type="radio" name="gender" value="female"> Female<br>
-
 
 What gender(s) are you interested in working out with? (Check all that apply)<br>
  <input type="checkbox" name="genderpartner" value="male"> Male   <input type="checkbox" name="genderpartner" value="female"> Female<br>
@@ -291,24 +323,7 @@ Sunday Availability:
      <input type="checkbox" name="sunday" value="9"> 10pm-11pm<br>
 
 
-<div class=”weightLifting”>
-What is the highest weight level you will need to be spotted for? (Check one)<br>
- <input type="radio" name="highest" value="none"> I don't need to be spotted.<br>
-  <input type="radio" name="highest" value="50"> 50LBS<br>
-  <input type="radio" name="highest" value="100"> 100LBS<br>
-  <input type="radio" name="highest" value="150"> 150LBS<br>
-  <input type="radio" name="highest" value="200"> 200LBS<br>
-  <input type="radio" name="highest" value="250"> 250LBS<br>
-  <input type="radio" name="highest" value="300"> 300LBS+<br>
 
-What is the highest weight level you can spot someone else for? (Check one)<br>
-  <input type="radio" name="spotting" value="50"> 50LBS<br>
-  <input type="radio" name="spotting" value="100"> 100LBS<br>
-  <input type="radio" name="spotting" value="150"> 150LBS<br>
-  <input type="radio" name="spotting" value="200"> 200LBS<br>
-  <input type="radio" name="spotting" value="250"> 250LBS<br>
-  <input type="radio" name="spotting" value="300"> 300LBS+<br>
-</div>
 
 <div class=”running”>
 How much time do you usually run for? (Check one)<br>
