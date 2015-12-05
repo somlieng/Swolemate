@@ -204,8 +204,8 @@ td
     Which activities do you prefer a partner/group for? (Check all that apply)<br>
     
     <!-- WEIGHTLIFTING -->
-    <input type="checkbox" name="partner" value="weight lifting"> Weight Lifting<br>
-        <div class=”weightLifting”>
+    <input type="checkbox" onclick="showText('spot');" name="partner" value="weight lifting"> Weight Lifting<br>
+        <div style="display:none;" id="spot" class=”weightLifting”>
             What is the highest weight level you will need to be spotted for? (Check one)<br>
             <input type="radio" name="highest" value="none"> I don't need to be spotted.<br>
             <input type="radio" name="highest" value="50"> 50LBS<br>
@@ -224,7 +224,20 @@ td
             <input type="radio" name="spotting" value="300"> 300LBS+<br>
         </div>
     <input type="checkbox" name="partner" value="cardio"> Cardio<br>
-    <input type="checkbox" name="partner" value="running"> Running<br>
+    <input type="checkbox" onclick="showText('run');" name="partner" value="running"> Running<br>
+        <div style="display:none;" id="run" class=”running”>
+            How much time do you usually run for? (Check one)<br>
+            <input type="radio" name="runtime" value="1"> 30min or less<br>
+            <input type="radio" name="runtime" value="2"> 30min - 1hr<br>
+            <input type="radio" name="runtime" value="3"> 1hr-1.5hrs<br>
+            <input type="radio" name="runtime" value="4"> 1.5hrs+<br>
+
+            Where do you like to run? (Check all that apply)<br>
+            <input type="checkbox" name="runloc" value="outtrack"> Outdoor Track
+            <input type="checkbox" name="runloc" value="intrack"> Indoor Track
+            <input type="checkbox" name="runloc" value="treadmill"> Treadmill
+            <input type="checkbox" name="runloc" value="outside"> Outside Path<br>
+        </div>
     <input type="checkbox" name="partner" value="fitness classes"> Fitness Classes<br>
     <input type="checkbox" name="partner" value="basketball"> Basketball<br>
     <input type="checkbox" name="partner" value="tennis"> Tennis<br>
@@ -325,20 +338,7 @@ Sunday Availability:
 
 
 
-<div class=”running”>
-How much time do you usually run for? (Check one)<br>
-<input type="radio" name="runtime" value="1"> 30min or less<br>
-  <input type="radio" name="runtime" value="2"> 30min - 1hr<br>
-  <input type="radio" name="runtime" value="3"> 1hr-1.5hrs<br>
-  <input type="radio" name="runtime" value="4"> 1.5hrs+<br>
 
-Where do you like to run? (Check all that apply)<br>
-<input type="checkbox" name="runloc" value="outtrack"> Outdoor Track
-   <input type="checkbox" name="runloc" value="intrack"> Indoor Track
-    <input type="checkbox" name="runloc" value="treadmill"> Treadmill
-    <input type="checkbox" name="runloc" value="outside"> Outside Path<br>
-
-</div>
 
 <div class = “cardio”>
 What cardio activities do you like to do? <br>
