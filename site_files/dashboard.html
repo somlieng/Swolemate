@@ -31,42 +31,41 @@
     <script type="text/javascript">
        var doughnutData = [
                 {
-                    value: 300,
+                    value: 30,
                     color:"#F7464A",
                     highlight: "#FF5A5E",
-                    label: "Red"
+                    label: "Dominick"
                 },
                 {
                     value: 50,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
-                    label: "Green"
+                    label: "Caroline"
                 },
                 {
-                    value: 100,
+                    value: 20,
+                    color: "#83adb5",
+                    highlight: "#b4cdd2",
+                    label: "Alane"
+                },
+                {
+                    value: 10,
                     color: "#FDB45C",
                     highlight: "#FFC870",
-                    label: "Yellow"
-                },
-                {
-                    value: 40,
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
-                    label: "Grey"
-                },
-                {
-                    value: 120,
-                    color: "#4D5360",
-                    highlight: "#616774",
-                    label: "Dark Grey"
+                    label: "Jeff"
                 }
-            ];
+            ];      
 
+        $(document).ready(function() {
 
-        window.onload = function(){
+            
                 var ctx = document.getElementById("chart-area").getContext("2d");
                 window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
-            };
+
+        });
+
+      var ctx = $("#myChart").get(0).getContext("2d");   
+
     </script>
 
     <style type="text/css">
@@ -79,6 +78,12 @@
     display: block;
     float:left;
     
+}
+
+.navigation{
+    display: inline-block;
+    vertical-align: middle;
+    float:none;
 }
 
 .member
@@ -167,7 +172,7 @@ td
     color: #fff;
 }
 
-.logo{
+.logo,.profile{
   vertical-align: middle;
   margin: 0 40px;
 }
@@ -183,8 +188,15 @@ td
 
 <div class="row">
   <div class="col-md-2">
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+      <div class="collapse navbar-collapse navbar-ex1-collapse navigation">
+                <ul class="nav navbar-nav side-nav navigation">
+                    
+                     <li>
+                        
+                        <img class="img-circle profile" border="0" src="./icon/gymemotions.jpg" width="180" height="180" id="profilePic">
+                        
+                    </li>
+
                     <li>
                         <a href="#" style="color: white" id="updateProfile"><i class="fa fa-fw fa-dashboard"></i> Update Your Profile</a>
                     </li>
@@ -209,19 +221,40 @@ td
             </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-3">
+
+  <h2 class="text-center">Welcome back!</h2>
+  <h3 class="text-center">Who did you exercise with today?</h3>
   
-  <div id="canvas-holder">
-            <canvas id="chart-area" width="500" height="500"/>
+  <div id="exerciseChart">
+            <canvas id="chart-area" width="400" height="400"/>
         </div>
        
+  <div class="panel panel-default">
+    <div class="panel-body">
+            <div class="updateChart">
+            Today I exercised with 
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Person
+              <span class="caret"></span>
+            </button>
+              <ul id = "people" aria-labelledby="dropdownMenu">
+              </ul>
+            <br>
+        <input class="btn btn-default updateButton" type="button" value="Update Chart"> 
+        </div>          
+    </div>
   </div>
 
-  <div class="col-md-6">
+  </div>
+
+  <div class="col-md-7">
   <div class="square">
           <div class="col-md-6">
                 <div class="panel panel-default">
+                  
                   <div class="panel-body">
+                    <img class="img-circle center-block" src="./icon/petwork5.png" id="friend1" height="200" weight="200"></img>
                     <p class="text-center" id="name">Dominick</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
@@ -229,6 +262,7 @@ td
 
                 <div class="panel panel-default">
                   <div class="panel-body">
+                  <img class="img-circle center-block" src="./icon/petwork5.png" id="friend2" height="200" weight="200"></img>
                    <p class="text-center" id="name">Caroline</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
@@ -238,6 +272,7 @@ td
           <div class="col-md-6">
             <div class="panel panel-default">
               <div class="panel-body">
+              <img class="img-circle center-block" src="./icon/petwork5.png" id="friend3" height="200" weight="200"></img>
                <p class="text-center" id="name">Jeff</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
@@ -245,6 +280,7 @@ td
 
             <div class="panel panel-default">
                   <div class="panel-body">
+                  <img class="img-circle center-block" src="./icon/petwork5.png" id="friend4" height="200" weight="200"></img>
                    <p class="text-center" id="name">Alane</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
