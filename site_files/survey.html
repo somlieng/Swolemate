@@ -261,25 +261,27 @@ td
             <input type="checkbox" name="runloc" value="treadmill"> Treadmill
             <input type="checkbox" name="runloc" value="outside"> Outside Path<br>
         </div>
-    <input type="checkbox" name="partner" value="fitness classes"> Fitness Classes<br>
-    <div class = “classes”> 
-What classes do you want a partner for?<br>
-<input type="checkbox" name="classpart" value="yoga"> Yoga<br>
-  <input type="checkbox" name="classpart" value="pilates"> Pilates<br>
-  <input type="checkbox" name="classpart" value="kickboxing"> Kickboxing<br>
-   <input type="checkbox" name="classpart" value="zumba"> Zumba<br>
-    <input type="checkbox" name="classpart" value="abs"> Abs of Steel<br>
+    
+    <!-- CLASSES -->
+    <input type="checkbox" onclick="showText('fitCalss');" name="partner" value="fitness classes"> Fitness Classes<br>
+        <div style="display:none;" id="fitClass" class = “classes”> 
+            What classes do you want a partner for?<br>
+            <input type="checkbox" name="classpart" value="yoga"> Yoga<br>
+            <input type="checkbox" name="classpart" value="pilates"> Pilates<br>
+            <input type="checkbox" name="classpart" value="kickboxing"> Kickboxing<br>
+            <input type="checkbox" name="classpart" value="zumba"> Zumba<br>
+            <input type="checkbox" name="classpart" value="abs"> Abs of Steel<br>
 
-What is your experience level?<br>
-<input type="radio" name="classexp" value="1"> Beginner<br>
-  <input type="radio" name="classexp" value="2"> Intermediate<br>
-  <input type="radio" name="classexp" value="3"> Expert<br>
+            What is your experience level?<br>
+            <input type="radio" name="classexp" value="1"> Beginner<br>
+            <input type="radio" name="classexp" value="2"> Intermediate<br>
+            <input type="radio" name="classexp" value="3"> Expert<br>
 
-What experience level(s) do you want your partner to have?<br>
-<input type="checkbox" name="classpartexp" value="1"> Beginner<br>
-  <input type="checkbox" name="classpartexp" value="2"> Intermediate<br>
-  <input type="checkbox" name="classpartexp" value="3"> Expert<br>
-</div>
+            What experience level(s) do you want your partner to have?<br>
+            <input type="checkbox" name="classpartexp" value="1"> Beginner<br>
+            <input type="checkbox" name="classpartexp" value="2"> Intermediate<br>
+            <input type="checkbox" name="classpartexp" value="3"> Expert<br>
+        </div>
     
     <!-- BASKETBALL -->
     <input type="checkbox" onclick="showText('bball');" name="partner" value="basketball"> Basketball<br>
