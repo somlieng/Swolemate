@@ -64,9 +64,15 @@
 
         });
 
-      var ctx = $("#myChart").get(0).getContext("2d");   
+      var ctx = $("#myChart").get(0).getContext("2d");
+
+         $(".dropdownMenu").click(function() {
+            alert("HEY YOU CLICKED ME")
+        });   
 
     </script>
+
+
 
     <style type="text/css">
 
@@ -177,6 +183,10 @@ td
   margin: 0 40px;
 }
 
+.content{
+  
+}
+
 
 </style>
 
@@ -230,16 +240,21 @@ td
             <canvas id="chart-area" width="400" height="400"/>
         </div>
        
+  <br>
   <div class="panel panel-default">
     <div class="panel-body">
-            <div class="updateChart">
+        <div class="updateChart">
             Today I exercised with 
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Person
-              <span class="caret"></span>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              People <span class="caret"></span>
             </button>
-              <ul id = "people" aria-labelledby="dropdownMenu">
-              </ul>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
             <br>
         <input class="btn btn-default updateButton" type="button" value="Update Chart"> 
         </div>          
@@ -255,7 +270,7 @@ td
                   
                   <div class="panel-body">
                     <img class="img-circle center-block" src="./icon/petwork5.png" id="friend1" height="200" weight="200"></img>
-                    <p class="text-center" id="name">Dominick</p>
+                    <p class="text-center" id="name1">Dominick</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
                 </div>
@@ -263,7 +278,7 @@ td
                 <div class="panel panel-default">
                   <div class="panel-body">
                   <img class="img-circle center-block" src="./icon/petwork5.png" id="friend2" height="200" weight="200"></img>
-                   <p class="text-center" id="name">Caroline</p>
+                   <p class="text-center" id="name2">Caroline</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
                 </div>
@@ -273,7 +288,7 @@ td
             <div class="panel panel-default">
               <div class="panel-body">
               <img class="img-circle center-block" src="./icon/petwork5.png" id="friend3" height="200" weight="200"></img>
-               <p class="text-center" id="name">Jeff</p>
+               <p class="text-center" id="name3">Jeff</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
             </div>
@@ -281,7 +296,7 @@ td
             <div class="panel panel-default">
                   <div class="panel-body">
                   <img class="img-circle center-block" src="./icon/petwork5.png" id="friend4" height="200" weight="200"></img>
-                   <p class="text-center" id="name">Alane</p>
+                   <p class="text-center" id="name4">Alane</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
                 </div>
