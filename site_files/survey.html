@@ -4,7 +4,7 @@
 
 <html>
 <head>
-
+<script src="jquery-1.11.3.min.js"></script>
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,10 +17,10 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <!-- <link href="css/sb-admin.css" rel="stylesheet"> -->
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <style type="text/css">
@@ -143,6 +143,96 @@ td
 
 </style>
 
+
+<script src="jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+ $(document).ajaxError(function() {
+      alert("Sorry, there was a problem!");
+    });
+
+//name and password should not be here. This is for the survey data. This code was copied from z7login and will be modified
+    $("#submit").click(function() {
+    // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
+    // Using the core $.ajax() method
+    $.ajax({
+      // The URL for the request -- note the simple REST API!
+      // all URLs are relative to http://localhost:3000/
+      url: "/survey/",
+      type: "PUT",
+      dataType : "text", // this URL returns data in JSON format
+      data : {
+          username: localStorage.getItem("username"),
+          activities: $('input[name="activities"]:checked').val(),
+            gender: $('input[name="gender"]:checked').val(),
+               genderpartner: $('input[name="genderpartner"]:checked').val(),
+               intensity: $('input[name="intensity"]:checked').val(),
+               monday: $('input[name="monday"]:checked').val(),
+               tuesday: $('input[name="tuesday"]:checked').val(),
+               wednesday: $('input[name="wednesday"]:checked').val(),
+               thursday: $('input[name="thursday"]:checked').val(),
+               friday: $('input[name="friday"]:checked').val(),
+               saturday: $('input[name="saturday"]:checked').val(),
+               sunday: $('input[name="sunday"]:checked').val(),
+               highest: $('input[name="highest"]:checked').val(),
+               spotting: $('input[name="spotting"]:checked').val(),
+               runtime: $('input[name="runtime"]:checked').val(),
+               runloc: $('input[name="runloc"]:checked').val(),
+               cardioact: $('input[name="cardioact"]:checked').val(),
+               cardiopartner: $('input[name="cardiopartner"]:checked').val(),
+               cardiotime: $('input[name="cardiotime"]:checked').val(),
+               basketexp: $('input[name="basketexp"]:checked').val(),
+               basketpartexp: $('input[name="basketpartexp"]:checked').val(),
+               soccerexp: $('input[name="soccerexp"]:checked').val(),
+               soccerpartexp: $('input[name="soccerpartexp"]:checked').val(),
+               tennisexp: $('input[name="tennisexp"]:checked').val(),
+               tennispartexp: $('input[name="tennispartexp"]:checked').val(),
+               badmintonexp: $('input[name="badmintonexp"]:checked').val(),
+               badmintonpartexp: $('input[name="badmintonpartexp"]:checked').val(),
+               squashexp: $('input[name="squashexp"]:checked').val(),
+               squashpartexp: $('input[name="squashpartexp"]:checked').val(),
+               swimtime: $('input[name="swimtime"]:checked').val(),
+               swimrace: $('input[name="swimrace"]:checked').val(),
+               classpart: $('input[name="classpart"]:checked').val(),
+               classexp: $('input[name="classexp"]:checked').val(),
+               classpartexp: $('input[name="classpartexp"]:checked').val()
+             },
+      success: function( data ) {
+        console.log("You received some data!", data);
+        if (data == "error") {
+          console.log("Oops!");
+        } else {
+          console.log("Nice!");
+          res.send(data);
+        }
+      },
+    });
+});
+});
+
+
+
+// //http://stackoverflow.com/questions/11494304/checkbox-uncheck-if-other-checkbox-is-selected
+// $(function(){
+//     var el=$('input:checkbox[name="city_pref[]"]');
+//     el.on('change', function(e){
+//         if($(this).attr('id')!='city_all')
+//         {
+//             if($(this).is(':checked')) $('#city_all').prop('checked', false);
+//         }
+//         else
+//         {
+//             if($(this).is(':checked')) el.not($(this)).prop('checked', false);
+//         }
+//     });
+// });​
+</script>
+
+
+
+
+
 </head>
 <body>
 
@@ -182,23 +272,24 @@ td
 
 
 <!-- These questions aren't finished, nor are they the correct questions we should be asking. We need a better way to enumerate these values. Still working on it -->
-<div class="survey" method="get">
+<div class="survey">
     <center><h2>SwoleMate Match-Finding Survey</h2>
     <h4>Please fill out these questions to help us find the perfect gym partners for you.</h4></center> <!--/form header-->
 
-<form>
+<!-- post isn't working, info is still in the url-->
+<form action"/survey.html"method="post">
     <p>
     Which activities do you prefer a partner/group for? (Check all that apply)<br>
-     <input type="checkbox" name="partner" value="weight lifting"> Weight Lifting<br>
-      <input type="checkbox" name="partner" value="cardio"> Cardio<br>
-       <input type="checkbox" name="partner" value="running"> Running<br>
-        <input type="checkbox" name="partner" value="fitness classes"> Fitness Classes<br>
-  <input type="checkbox" name="partner" value="basketball"> Basketball<br>
-   <input type="checkbox" name="partner" value="tennis"> Tennis<br>
-    <input type="checkbox" name="partner" value="badminton"> Badminton<br>
-     <input type="checkbox" name="partner" value="squash"> Squash<br>
-    <input type="checkbox" name="partner" value="swimming"> Swimmming<br>
-     <input type="checkbox" name="partner" value=""> Soccer<br>
+     <input type="checkbox" name="activities" value="weight lifting"> Weight Lifting<br>
+      <input type="checkbox" name="activities" value="cardio"> Cardio<br>
+       <input type="checkbox" name="activities" value="running"> Running<br>
+        <input type="checkbox" name="activities" value="fitness classes"> Fitness Classes<br>
+  <input type="checkbox" name="activities" value="basketball"> Basketball<br>
+   <input type="checkbox" name="activities" value="tennis"> Tennis<br>
+    <input type="checkbox" name="activities" value="badminton"> Badminton<br>
+     <input type="checkbox" name="activities" value="squash"> Squash<br>
+    <input type="checkbox" name="activities" value="swimming"> Swimmming<br>
+     <input type="checkbox" name="activities" value="soccer"> Soccer<br>
 
    What is your gender? (Check one)<br>
     <input type="radio" name="gender" value="male"> Male   <input type="radio" name="gender" value="female"> Female<br>
@@ -216,7 +307,7 @@ What level of intensity do you workout at? (Check one)<br>
 What is Your Availability: (Check all that apply)<br>
 <i>*Note: The UR gym is open: M-TH: 6:30-11  F: 6:30-8  Sat:8-8  Sun-8-11*</i><br>
 Monday Availability:
- <input type="checkbox" name="monday" value="none"> None
+ <input type="checkbox" name="monday" value="0"  checked> None
   <input type="checkbox" name="monday" value="1"> 6:30am-8am
    <input type="checkbox" name="monday" value="2"> 8am-10am
     <input type="checkbox" name="monday" value="3"> 10am-12pm
@@ -227,7 +318,7 @@ Monday Availability:
      <input type="checkbox" name="monday" value="8"> 8pm-10pm
      <input type="checkbox" name="monday" value="9"> 10pm-11pm<br>
 Tuesday Availability:
- <input type="checkbox" name="tuesday" value="none"> None
+ <input type="checkbox" name="tuesday" value="0"> None
   <input type="checkbox" name="tuesday" value="1"> 6:30am-8am
    <input type="checkbox" name="tuesday" value="2"> 8am-10am
     <input type="checkbox" name="tuesday" value="3"> 10am-12pm
@@ -238,7 +329,7 @@ Tuesday Availability:
      <input type="checkbox" name="tuesday" value="8"> 8pm-10pm
      <input type="checkbox" name="tuesday" value="9"> 10pm-11pm<br>
 Wednesday Availability:
- <input type="checkbox" name="wednesday" value="none"> None
+ <input type="checkbox" name="wednesday" value="0" > None
   <input type="checkbox" name="wednesday" value="1"> 6:30am-8am
    <input type="checkbox" name="wednesday" value="2"> 8am-10am
     <input type="checkbox" name="wednesday" value="3"> 10am-12pm
@@ -249,7 +340,7 @@ Wednesday Availability:
      <input type="checkbox" name="wednesday" value="8"> 8pm-10pm
      <input type="checkbox" name="wednesday" value="9"> 10pm-11pm<br>
 Thursday Availability:
- <input type="checkbox" name="thursday" value="none"> None
+ <input type="checkbox" name="thursday" value="0"> None
   <input type="checkbox" name="thursday" value="1"> 6:30am-8am
    <input type="checkbox" name="thursday" value="2"> 8am-10am
     <input type="checkbox" name="thursday" value="3"> 10am-12pm
@@ -260,7 +351,7 @@ Thursday Availability:
      <input type="checkbox" name="thursday" value="8"> 8pm-10pm
      <input type="checkbox" name="thursday" value="9"> 10pm-11pm<br>
 Friday Availability:
-<input type="checkbox" name="friday" value="none"> None
+<input type="checkbox" name="friday" value="0"> None
   <input type="checkbox" name="friday" value="1"> 6:30am-8am
    <input type="checkbox" name="friday" value="2"> 8am-10am
     <input type="checkbox" name="friday" value="3"> 10am-12pm
@@ -271,7 +362,7 @@ Friday Availability:
 
 
 Saturday Availability:
-<input type="checkbox" name="saturday" value="none"> None
+<input type="checkbox" name="saturday" value="0"> None
    <input type="checkbox" name="saturday" value="2"> 8am-10am
     <input type="checkbox" name="saturday" value="3"> 10am-12pm
     <input type="checkbox" name="saturday" value="4"> 12pm-2pm
@@ -280,7 +371,7 @@ Saturday Availability:
     <input type="checkbox" name="saturday" value="7"> 6pm-8pm<br>
 
 Sunday Availability:
-<input type="checkbox" name="sunday" value="none"> None
+<input type="checkbox" name="sunday" value="0"> None
    <input type="checkbox" name="sunday" value="2"> 8am-10am
     <input type="checkbox" name="sunday" value="3"> 10am-12pm
     <input type="checkbox" name="sunday" value="4"> 12pm-2pm
@@ -293,7 +384,7 @@ Sunday Availability:
 
 <div class=”weightLifting”>
 What is the highest weight level you will need to be spotted for? (Check one)<br>
- <input type="radio" name="highest" value="none"> I don't need to be spotted.<br>
+ <input type="radio" name="highest" value="0"> I don't need to be spotted.<br>
   <input type="radio" name="highest" value="50"> 50LBS<br>
   <input type="radio" name="highest" value="100"> 100LBS<br>
   <input type="radio" name="highest" value="150"> 150LBS<br>
@@ -441,7 +532,7 @@ What experience level(s) do you want your partner to have?<br>
 
 
 </p>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" id="submit">
 </form>
 
     </div>

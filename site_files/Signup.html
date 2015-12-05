@@ -51,12 +51,14 @@
 	               // lastname: $("#inputlastName").val()
 	             },
 	      success: function( data ) {
-	      	localStorage.setItem("password", $("#inputPassword").val());
-	      	localStorage.setItem("username", $("#inputUsername").val());
 	        console.log("You received some data!" , data);
 	        if (data == 'OK') {
+	        	localStorage.setItem("password", $("#inputPassword").val());
+	      		localStorage.setItem("username", $("#inputUsername").val());
 	          window.location = "./dashboard.html";
+
 	        } else {
+	        	console.log(data);
 	          $("#status").html("Error: could not create a new user!");
 	        }
 	      },
