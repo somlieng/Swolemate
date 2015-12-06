@@ -348,9 +348,9 @@ return vals;
     <h4>Please fill out these questions to help us find the perfect gym partners for you.</h4></center> <!--/form header-->
 
 <!-- post isn't working, info is still in the url-->
-<form action"/survey.html"method="post">
-    <p>
-    Which activities do you prefer a partner/group for? (Check all that apply)<br>
+<form action"/survey.html"method="post" style="margin-left:8px;">
+    <strong>
+    Which activities do you prefer a partner/group for? (Check all that apply)</strong><br>
 
   <!--    <input type="checkbox" name="activities" value="weight lifting"> Weight Lifting<br>
       <input type="checkbox" name="activities" value="cardio"> Cardio<br>
@@ -368,7 +368,7 @@ return vals;
     <input type="checkbox" onclick="showText('spot');" name="activities" value="weight lifting"> Weight Lifting<br>
         
         <div style="display:none; margin-left: 20px;" id="spot" class="weightLifting bg-info">
-            What is the highest weight level you will need to be spotted for? (Check one)<br>
+            <strong>What is the highest weight level you will need to be spotted for? (Check one)</strong><br>
             <input type="radio" name="highest" value="none"> I don't need to be spotted.<br>
             <input type="radio" name="highest" value="50"> 50LBS<br>
             <input type="radio" name="highest" value="100"> 100LBS<br>
@@ -377,7 +377,7 @@ return vals;
             <input type="radio" name="highest" value="250"> 250LBS<br>
             <input type="radio" name="highest" value="300"> 300LBS+<br>
     
-            What is the highest weight level you can spot someone else for? (Check one)<br>
+            <strong>What is the highest weight level you can spot someone else for? (Check one)</strong><br>
             <input type="radio" name="spotting" value="50"> 50LBS<br>
             <input type="radio" name="spotting" value="100"> 100LBS<br>
             <input type="radio" name="spotting" value="150"> 150LBS<br>
@@ -390,19 +390,19 @@ return vals;
     <!-- CARDIO -->
     <input type="checkbox" onclick="showText('crdio');" name="activities" value="cardio"> Cardio<br>
         <div style="display:none;  margin-left: 20px;" id="crdio" class = "cardio bg-info">
-            What cardio activities do you like to do? <br>
+            <strong>What cardio activities do you like to do?</strong> <br>
             <input type="checkbox" name="cardioact" value="elliptical"> Elliptical
             <input type="checkbox" name="cardioact" value="bike"> Stationary Bike
             <input type="checkbox" name="cardioact" value="stairmaster"> Stairmaster
             <input type="checkbox" name="cardioact" value="other"> Other<br>
 
-            What cardio activities do you want your partner to do? <br>
+            <strong>What cardio activities do you want your partner to do? </strong><br>
             <input type="checkbox" name="cardiopartner" value="elliptical"> Elliptical
             <input type="checkbox" name="cardiopartner" value="bike"> Stationary Bike
             <input type="checkbox" name="cardiopartner" value="stairmaster"> Stairmaster
             <input type="checkbox" name="cardiopartner" value="other"> Other<br>
             
-            How long do you usually do cardio for? <br>
+            <strong>How long do you usually do cardio for? </strong><br>
             <input type="radio" name="cardiotime" value="1"> 30min or less<br>
             <input type="radio" name="cardiotime" value="2"> 30min - 1hr<br>
             <input type="radio" name="cardiotime" value="3"> 1hr-1.5hrs<br>
@@ -412,13 +412,13 @@ return vals;
     <!-- RUNNING -->
     <input type="checkbox" onclick="showText('run');" name="activities" value="running"> Running<br>
         <div style="display:none;  margin-left: 20px;" id="run" class="running bg-info">
-            How much time do you usually run for? (Check one)<br>
+            <strong>How much time do you usually run for? (Check one)</strong><br>
             <input type="radio" name="runtime" value="1"> 30min or less<br>
             <input type="radio" name="runtime" value="2"> 30min - 1hr<br>
             <input type="radio" name="runtime" value="3"> 1hr-1.5hrs<br>
             <input type="radio" name="runtime" value="4"> 1.5hrs+<br>
 
-            Where do you like to run? (Check all that apply)<br>
+            <strong>Where do you like to run? (Check all that apply)</strong><br>
             <input type="checkbox" name="runloc" value="outtrack"> Outdoor Track
             <input type="checkbox" name="runloc" value="intrack"> Indoor Track
             <input type="checkbox" name="runloc" value="treadmill"> Treadmill
@@ -428,19 +428,19 @@ return vals;
     <!-- CLASSES -->
     <input type="checkbox" onclick="showText('fitClass');" name="activities" value="fitness classes"> Fitness Classes<br>
         <div style="display:none;  margin-left: 20px;" id="fitClass" class = "classes bg-info"> 
-            What classes do you want a partner for?<br>
+            <strong>What classes do you want a partner for?</strong><br>
             <input type="checkbox" name="classpart" value="yoga"> Yoga<br>
             <input type="checkbox" name="classpart" value="pilates"> Pilates<br>
             <input type="checkbox" name="classpart" value="kickboxing"> Kickboxing<br>
             <input type="checkbox" name="classpart" value="zumba"> Zumba<br>
             <input type="checkbox" name="classpart" value="abs"> Abs of Steel<br>
 
-            What is your experience level?<br>
+            <strong>What is your experience level?</strong><br>
             <input type="radio" name="classexp" value="1"> Beginner<br>
             <input type="radio" name="classexp" value="2"> Intermediate<br>
             <input type="radio" name="classexp" value="3"> Expert<br>
 
-            What experience level(s) do you want your partner to have?<br>
+            <strong>What experience level(s) do you want your partner to have?</strong><br>
             <input type="checkbox" name="classpartexp" value="1"> Beginner<br>
             <input type="checkbox" name="classpartexp" value="2"> Intermediate<br>
             <input type="checkbox" name="classpartexp" value="3"> Expert<br>
@@ -449,12 +449,12 @@ return vals;
     <!-- BASKETBALL -->
     <input type="checkbox" onclick="showText('bball');" name="activities" value="basketball"> Basketball<br>
         <div style="display: none;  margin-left: 20px;" id="bball" class = "basketball bg-info">
-            What is your experience level?<br>
+            <strong>What is your experience level?</strong><br>
             <input type="radio" name="basketexp" value="1"> Beginner<br>
             <input type="radio" name="basketexp" value="2"> Intermediate<br>
             <input type="radio" name="basketexp" value="3"> Expert<br>
 
-            What experience level(s) do you want your partner to have?<br>
+            <strong>What experience level(s) do you want your partner to have?</strong><br>
             <input type="checkbox" name="basketpartexp" value="1"> Beginner<br>
             <input type="checkbox" name="basketpartexp" value="2"> Intermediate<br>
             <input type="checkbox" name="basketpartexp" value="3"> Expert<br>
@@ -463,12 +463,12 @@ return vals;
     <!-- TENNIS -->
     <input type="checkbox" onclick="showText('tennis');" name="activities" value="tennis"> Tennis<br>
         <div style="display:none;  margin-left: 20px;" id="tennis" class = "tennis bg-info"> 
-            What is your experience level?<br>
+            <strong>What is your experience level?</strong><br>
             <input type="radio" name="tennisexp" value="1"> Beginner<br>
             <input type="radio" name="tennisexp" value="2"> Intermediate<br>
             <input type="radio" name="tennisexp" value="3"> Expert<br>
 
-            What experience level(s) do you want your partner to have?<br>
+            <strong>What experience level(s) do you want your partner to have?</strong><br>
             <input type="checkbox" name="tennispartexp" value="1"> Beginner<br>
             <input type="checkbox" name="tennispartexp" value="2"> Intermediate<br>
             <input type="checkbox" name="tennispartexp" value="3"> Expert<br>
@@ -477,12 +477,12 @@ return vals;
     <!-- BADMINTON -->
     <input type="checkbox" onclick="showText('bad');" name="activities" value="badminton"> Badminton<br>
         <div style="display:none;  margin-left: 20px;" id="bad" class = "badminton bg-info"> 
-            What is your experience level?<br>
+            <strong>What is your experience level?</strong><br>
             <input type="radio" name="badmintonexp" value="1"> Beginner<br>
             <input type="radio" name="badmintonexp" value="2"> Intermediate<br>
             <input type="radio" name="badmintonexp" value="3"> Expert<br>
 
-            What experience level(s) do you want your partner to have?<br>
+            <strong>What experience level(s) do you want your partner to have?</strong><br>
             <input type="checkbox" name="badmintonpartexp" value="1"> Beginner<br>
             <input type="checkbox" name="badmintonpartexp" value="2"> Intermediate<br>
             <input type="checkbox" name="badmintonpartexp" value="3"> Expert<br>
@@ -491,12 +491,12 @@ return vals;
     <!-- SQUASH -->
     <input type="checkbox" onclick="showText('sqsh');" name="activities" value="squash"> Squash<br>
         <div style="display:none;  margin-left: 20px;" id="sqsh" class = "squash bg-info">
-            What is your experience level?<br>
+            <strong>What is your experience level?</strong><br>
             <input type="radio" name="squashexp" value="1"> Beginner<br>
             <input type="radio" name="squashexp" value="2"> Intermediate<br>
             <input type="radio" name="squashexp" value="3"> Expert<br>
 
-            What experience level(s) do you want your partner to have?<br>
+            <strong>What experience level(s) do you want your partner to have?</strong><br>
             <input type="checkbox" name="squashpartexp" value="1"> Beginner<br>
             <input type="checkbox" name="squashpartexp" value="2"> Intermediate<br>
             <input type="checkbox" name="squashpartexp" value="3"> Expert<br>
@@ -505,13 +505,13 @@ return vals;
     <!-- SWIMMING -->
     <input type="checkbox" onclick="showText('swim');" name="activities" value="swimming"> Swimmming<br>
         <div style="display:none;  margin-left: 20px;" id="swim" class = "swimming bg-info"> 
-            How long do you usually swim for? <br>
+            <strong>How long do you usually swim for? </strong><br>
             <input type="radio" name="swimtime" value="1"> 30min or less<br>
             <input type="radio" name="swimtime" value="2"> 30min - 1hr<br>
             <input type="radio" name="swimtime" value="3"> 1hr-1.5hrs<br>
             <input type="radio" name="swimtime" value="4"> 1.5hrs+<br>
 
-            Do you want a partner to race with? <br>
+            <strong>Do you want a partner to race with?</strong> <br>
             <input type="radio" name="swimrace" value="1"> Yes<br>
             <input type="radio" name="swimrace" value="0"> No<br>
         </div>
@@ -519,24 +519,24 @@ return vals;
     <!-- SOCCER -->
     <input type="checkbox" onclick="showText('sccr');" name="activities" value=""> Soccer<br>
         <div style="display:none;  margin-left: 20px;" id="sccr" class = "soccer bg-info"> 
-            What is your experience level?<br>
+            <strong>What is your experience level?</strong><br>
             <input type="radio" name="soccerexp" value="1"> Beginner<br>
             <input type="radio" name="soccerexp" value="2"> Intermediate<br>
             <input type="radio" name="soccerexp" value="3"> Expert<br>
 
-            What experience level(s) do you want your partner to have?<br>
+            <strong>What experience level(s) do you want your partner to have?</strong><br>
             <input type="checkbox" name="soccerpartexp" value="1"> Beginner<br>
             <input type="checkbox" name="soccerpartexp" value="2"> Intermediate<br>
             <input type="checkbox" name="socccerpartexp" value="3"> Expert<br>
         </div>
 <br>
-   What is your gender? (Check one)<br>
+   <strong>What is your gender? (Check one)</strong><br>
     <input type="radio" name="gender" value="male"> Male   <input type="radio" name="gender" value="female"> Female<br>
 <br>
-What gender(s) are you interested in working out with? (Check all that apply)<br>
+<strong>What gender(s) are you interested in working out with? (Check all that apply)</strong><br>
  <input type="checkbox" name="genderpartner" value="male"> Male   <input type="checkbox" name="genderpartner" value="female"> Female<br>
 <br>
-What level of intensity do you workout at? (Check one)<br>
+<strong>What level of intensity do you workout at? (Check one)</strong><br>
  <input type="radio" name="intensity" value="casual"> Casual  <br>
  <input type="radio" name="intensity" value="moderate"> Moderate <br>
  <input type="radio" name="intensity" value="extreme"> EXTREME<br>
