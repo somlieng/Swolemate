@@ -109,6 +109,7 @@ td
 
 @media(min-width:768px) {
     .side-nav {
+        margin:0 auto;
         position: fixed;
         top: 0;
         left: 225px;
@@ -156,6 +157,9 @@ td
   margin: 0 40px;
 }
 
+body {
+    margin:auto;
+}
 
 </style>
 
@@ -300,7 +304,14 @@ return vals;
 <div class="content">
 
  <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                <ul class="nav navbar-nav side-nav navigation">
+                    
+                     <li>
+                        
+                        <img class="img-circle profile" border="0" src="./icon/gymemotions.jpg" width="180" height="180" id="profilePic">
+                        
+                    </li>
+
                     <li>
                         <a href="#" style="color: white" id="updateProfile"><i class="fa fa-fw fa-dashboard"></i> Update Your Profile</a>
                     </li>
@@ -355,7 +366,8 @@ return vals;
     
     <!-- WEIGHTLIFTING -->
     <input type="checkbox" onclick="showText('spot');" name="activities" value="weight lifting"> Weight Lifting<br>
-        <div style="display:none;" id="spot" class=”weightLifting”>
+        
+        <div style="display:none; margin-left: 20px;" id="spot" class="weightLifting bg-info">
             What is the highest weight level you will need to be spotted for? (Check one)<br>
             <input type="radio" name="highest" value="none"> I don't need to be spotted.<br>
             <input type="radio" name="highest" value="50"> 50LBS<br>
@@ -374,9 +386,10 @@ return vals;
             <input type="radio" name="spotting" value="300"> 300LBS+<br>
         </div>
         
+        
     <!-- CARDIO -->
     <input type="checkbox" onclick="showText('crdio');" name="activities" value="cardio"> Cardio<br>
-        <div style="display:none;" id="crdio" class = “cardio”>
+        <div style="display:none;  margin-left: 20px;" id="crdio" class = "cardio bg-info">
             What cardio activities do you like to do? <br>
             <input type="checkbox" name="cardioact" value="elliptical"> Elliptical
             <input type="checkbox" name="cardioact" value="bike"> Stationary Bike
@@ -398,7 +411,7 @@ return vals;
     
     <!-- RUNNING -->
     <input type="checkbox" onclick="showText('run');" name="activities" value="running"> Running<br>
-        <div style="display:none;" id="run" class=”running”>
+        <div style="display:none;  margin-left: 20px;" id="run" class="running bg-info">
             How much time do you usually run for? (Check one)<br>
             <input type="radio" name="runtime" value="1"> 30min or less<br>
             <input type="radio" name="runtime" value="2"> 30min - 1hr<br>
@@ -414,7 +427,7 @@ return vals;
     
     <!-- CLASSES -->
     <input type="checkbox" onclick="showText('fitClass');" name="activities" value="fitness classes"> Fitness Classes<br>
-        <div style="display:none;" id="fitClass" class = “classes”> 
+        <div style="display:none;  margin-left: 20px;" id="fitClass" class = "classes bg-info"> 
             What classes do you want a partner for?<br>
             <input type="checkbox" name="classpart" value="yoga"> Yoga<br>
             <input type="checkbox" name="classpart" value="pilates"> Pilates<br>
@@ -435,7 +448,7 @@ return vals;
     
     <!-- BASKETBALL -->
     <input type="checkbox" onclick="showText('bball');" name="activities" value="basketball"> Basketball<br>
-        <div style="display: none;" id="bball" class = “basketball”>
+        <div style="display: none;  margin-left: 20px;" id="bball" class = "basketball bg-info">
             What is your experience level?<br>
             <input type="radio" name="basketexp" value="1"> Beginner<br>
             <input type="radio" name="basketexp" value="2"> Intermediate<br>
@@ -449,7 +462,7 @@ return vals;
     
     <!-- TENNIS -->
     <input type="checkbox" onclick="showText('tennis');" name="activities" value="tennis"> Tennis<br>
-        <div style="display:none;" id="tennis" class = “tennis”> 
+        <div style="display:none;  margin-left: 20px;" id="tennis" class = "tennis bg-info"> 
             What is your experience level?<br>
             <input type="radio" name="tennisexp" value="1"> Beginner<br>
             <input type="radio" name="tennisexp" value="2"> Intermediate<br>
@@ -463,7 +476,7 @@ return vals;
         
     <!-- BADMINTON -->
     <input type="checkbox" onclick="showText('bad');" name="activities" value="badminton"> Badminton<br>
-        <div style="display:none;" id="bad" class = “badminton”> 
+        <div style="display:none;  margin-left: 20px;" id="bad" class = "badminton bg-info"> 
             What is your experience level?<br>
             <input type="radio" name="badmintonexp" value="1"> Beginner<br>
             <input type="radio" name="badmintonexp" value="2"> Intermediate<br>
@@ -477,7 +490,7 @@ return vals;
         
     <!-- SQUASH -->
     <input type="checkbox" onclick="showText('sqsh');" name="activities" value="squash"> Squash<br>
-        <div style="display:none;" id="sqsh" class = “squash”>
+        <div style="display:none;  margin-left: 20px;" id="sqsh" class = "squash bg-info">
             What is your experience level?<br>
             <input type="radio" name="squashexp" value="1"> Beginner<br>
             <input type="radio" name="squashexp" value="2"> Intermediate<br>
@@ -491,7 +504,7 @@ return vals;
         
     <!-- SWIMMING -->
     <input type="checkbox" onclick="showText('swim');" name="activities" value="swimming"> Swimmming<br>
-        <div style="display:none;" id="swim" class = “swimming”> 
+        <div style="display:none;  margin-left: 20px;" id="swim" class = "swimming bg-info"> 
             How long do you usually swim for? <br>
             <input type="radio" name="swimtime" value="1"> 30min or less<br>
             <input type="radio" name="swimtime" value="2"> 30min - 1hr<br>
@@ -505,7 +518,7 @@ return vals;
     
     <!-- SOCCER -->
     <input type="checkbox" onclick="showText('sccr');" name="activities" value=""> Soccer<br>
-        <div style="display:none;" id="sccr" class = “soccer”> 
+        <div style="display:none;  margin-left: 20px;" id="sccr" class = "soccer bg-info"> 
             What is your experience level?<br>
             <input type="radio" name="soccerexp" value="1"> Beginner<br>
             <input type="radio" name="soccerexp" value="2"> Intermediate<br>
@@ -529,82 +542,127 @@ What level of intensity do you workout at? (Check one)<br>
  <input type="radio" name="intensity" value="extreme"> EXTREME<br>
 
 
-What is Your Availability: (Check all that apply)<br>
-<i>*Note: The UR gym is open: M-TH: 6:30-11  F: 6:30-8  Sat:8-8  Sun-8-11*</i><br>
-Monday Availability:
- <input type="checkbox" name="monday" value="0" > None
-  <input type="checkbox" name="monday" value="1"> 6:30am-8am
-   <input type="checkbox" name="monday" value="2"> 8am-10am
-    <input type="checkbox" name="monday" value="3"> 10am-12pm
-    <input type="checkbox" name="monday" value="4"> 12pm-2pm
-    <input type="checkbox" name="monday" value="5"> 2pm-4pm
-    <input type="checkbox" name="monday" value="6"> 4pm-6pm
-    <input type="checkbox" name="monday" value="7"> 6pm-8pm
-     <input type="checkbox" name="monday" value="8"> 8pm-10pm
-     <input type="checkbox" name="monday" value="9"> 10pm-11pm<br>
-Tuesday Availability:
- <input type="checkbox" name="tuesday" value="0"> None
-  <input type="checkbox" name="tuesday" value="1"> 6:30am-8am
-   <input type="checkbox" name="tuesday" value="2"> 8am-10am
-    <input type="checkbox" name="tuesday" value="3"> 10am-12pm
-    <input type="checkbox" name="tuesday" value="4"> 12pm-2pm
-    <input type="checkbox" name="tuesday" value="5"> 2pm-4pm
-    <input type="checkbox" name="tuesday" value="6"> 4pm-6pm
-    <input type="checkbox" name="tuesday" value="7"> 6pm-8pm
-     <input type="checkbox" name="tuesday" value="8"> 8pm-10pm
-     <input type="checkbox" name="tuesday" value="9"> 10pm-11pm<br>
-Wednesday Availability:
- <input type="checkbox" name="wednesday" value="0" > None
-  <input type="checkbox" name="wednesday" value="1"> 6:30am-8am
-   <input type="checkbox" name="wednesday" value="2"> 8am-10am
-    <input type="checkbox" name="wednesday" value="3"> 10am-12pm
-    <input type="checkbox" name="wednesday" value="4"> 12pm-2pm
-    <input type="checkbox" name="wednesday" value="5"> 2pm-4pm
-    <input type="checkbox" name="wednesday" value="6"> 4pm-6pm
-    <input type="checkbox" name="wednesday" value="7"> 6pm-8pm
-     <input type="checkbox" name="wednesday" value="8"> 8pm-10pm
-     <input type="checkbox" name="wednesday" value="9"> 10pm-11pm<br>
-Thursday Availability:
- <input type="checkbox" name="thursday" value="0"> None
-  <input type="checkbox" name="thursday" value="1"> 6:30am-8am
-   <input type="checkbox" name="thursday" value="2"> 8am-10am
-    <input type="checkbox" name="thursday" value="3"> 10am-12pm
-    <input type="checkbox" name="thursday" value="4"> 12pm-2pm
-    <input type="checkbox" name="thursday" value="5"> 2pm-4pm
-    <input type="checkbox" name="thursday" value="6"> 4pm-6pm
-    <input type="checkbox" name="thursday" value="7"> 6pm-8pm
-     <input type="checkbox" name="thursday" value="8"> 8pm-10pm
-     <input type="checkbox" name="thursday" value="9"> 10pm-11pm<br>
-Friday Availability:
-<input type="checkbox" name="friday" value="0"> None
-  <input type="checkbox" name="friday" value="1"> 6:30am-8am
-   <input type="checkbox" name="friday" value="2"> 8am-10am
-    <input type="checkbox" name="friday" value="3"> 10am-12pm
-    <input type="checkbox" name="friday" value="4"> 12pm-2pm
-    <input type="checkbox" name="friday" value="5"> 2pm-4pm
-    <input type="checkbox" name="friday" value="6"> 4pm-6pm
-    <input type="checkbox" name="friday" value="7"> 6pm-8pm<br>
+<br><h4>What is Your Availability: (Check all that apply)</h4>
+<i>*Note: The UR gym is open: M-TH: 6:30-11  F: 6:30-8  Sat:8-8  Sun-8-11*</i><br><br>
 
+<table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>None</th>
+        <th>6:30am-8am</th>
+        <th>8am-10am</th>
+        <th>10am-12pm</th>
+        <th>12pm-2pm</th>
+        <th>2pm-4pm</th>
+        <th>4pm-6pm</th>
+        <th>6pm-8pm</th>
+        <th>8pm-10pm</th>
+        <th>10pm-11pm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monday</td>
+        <td><input type="checkbox" name="monday" value="0" ></td>
+        <td><input type="checkbox" name="monday" value="1"></td>
+        <td><input type="checkbox" name="monday" value="2"></td>
+        <td><input type="checkbox" name="monday" value="3"> </td>
+        <td> <input type="checkbox" name="monday" value="4"></td>
+        <td><input type="checkbox" name="monday" value="5"> </td>
+        <td><input type="checkbox" name="monday" value="6"> </td>
+        <td><input type="checkbox" name="monday" value="7"> </td>
+        <td> <input type="checkbox" name="monday" value="8"> </td>
+        <td><input type="checkbox" name="monday" value="9"> </td>
+      </tr>
 
-Saturday Availability:
-<input type="checkbox" name="saturday" value="0"> None
-   <input type="checkbox" name="saturday" value="2"> 8am-10am
-    <input type="checkbox" name="saturday" value="3"> 10am-12pm
-    <input type="checkbox" name="saturday" value="4"> 12pm-2pm
-    <input type="checkbox" name="saturday" value="5"> 2pm-4pm
-    <input type="checkbox" name="saturday" value="6"> 4pm-6pm
-    <input type="checkbox" name="saturday" value="7"> 6pm-8pm<br>
+      <tr>
+        <td>Tuesday</td>
+        <td><input type="checkbox" name="tuesday" value="0" ></td>
+        <td><input type="checkbox" name="tuesday" value="1"></td>
+        <td><input type="checkbox" name="tuesday" value="2"></td>
+        <td><input type="checkbox" name="tuesday" value="3"> </td>
+        <td> <input type="checkbox" name="tuesday" value="4"></td>
+        <td><input type="checkbox" name="tuesday" value="5"> </td>
+        <td><input type="checkbox" name="tuesday" value="6"> </td>
+        <td><input type="checkbox" name="tuesday" value="7"> </td>
+        <td> <input type="checkbox" name="tuesday" value="8"> </td>
+        <td><input type="checkbox" name="tuesday" value="9"> </td>
+      </tr>
 
-Sunday Availability:
-<input type="checkbox" name="sunday" value="0"> None
-   <input type="checkbox" name="sunday" value="2"> 8am-10am
-    <input type="checkbox" name="sunday" value="3"> 10am-12pm
-    <input type="checkbox" name="sunday" value="4"> 12pm-2pm
-    <input type="checkbox" name="sunday" value="5"> 2pm-4pm
-    <input type="checkbox" name="sunday" value="6"> 4pm-6pm
-    <input type="checkbox" name="sunday" value="7"> 6pm-8pm
-     <input type="checkbox" name="sunday" value="8"> 8pm-10pm
-     <input type="checkbox" name="sunday" value="9"> 10pm-11pm<br>
+      <tr>
+        <td>Wednesday</td>
+        <td><input type="checkbox" name="wednesday" value="0" ></td>
+        <td><input type="checkbox" name="wednesday" value="1"></td>
+        <td><input type="checkbox" name="wednesday" value="2"></td>
+        <td><input type="checkbox" name="wednesday" value="3"> </td>
+        <td> <input type="checkbox" name="wednesday" value="4"></td>
+        <td><input type="checkbox" name="wednesday" value="5"> </td>
+        <td><input type="checkbox" name="wednesday" value="6"> </td>
+        <td><input type="checkbox" name="wednesday" value="7"> </td>
+        <td> <input type="checkbox" name="wednesday" value="8"> </td>
+        <td><input type="checkbox" name="wednesday" value="9"> </td>
+      </tr>
+
+      <tr>
+        <td>Thursday</td>
+        <td><input type="checkbox" name="thursday" value="0" ></td>
+        <td><input type="checkbox" name="thursday" value="1"></td>
+        <td><input type="checkbox" name="thursday" value="2"></td>
+        <td><input type="checkbox" name="thursday" value="3"> </td>
+        <td> <input type="checkbox" name="thursday" value="4"></td>
+        <td><input type="checkbox" name="thursday" value="5"> </td>
+        <td><input type="checkbox" name="thursday" value="6"> </td>
+        <td><input type="checkbox" name="thursday" value="7"> </td>
+        <td> <input type="checkbox" name="thursday" value="8"> </td>
+        <td><input type="checkbox" name="thursday" value="9"> </td>
+      </tr>
+
+      <tr>
+        <td>Friday</td>
+        <td><input type="checkbox" name="friday" value="0" ></td>
+        <td><input type="checkbox" name="friday" value="1"></td>
+        <td><input type="checkbox" name="friday" value="2"></td>
+        <td><input type="checkbox" name="friday" value="3"> </td>
+        <td> <input type="checkbox" name="friday" value="4"></td>
+        <td><input type="checkbox" name="friday" value="5"> </td>
+        <td><input type="checkbox" name="friday" value="6"> </td>
+        <td><input type="checkbox" name="friday" value="7"> </td>
+        <td> Gym not open </td>
+        <td> Gym not open </td>
+      </tr>
+
+      <tr>
+        <td>Saturday</td>
+        <td><input type="checkbox" name="saturday" value="0" ></td>
+        <td> Gym not open </td>
+        <td><input type="checkbox" name="saturday" value="2"></td>
+        <td><input type="checkbox" name="saturday" value="3"> </td>
+        <td> <input type="checkbox" name="saturday" value="4"></td>
+        <td><input type="checkbox" name="saturday" value="5"> </td>
+        <td><input type="checkbox" name="saturday" value="6"> </td>
+        <td><input type="checkbox" name="saturday" value="7"> </td>
+        <td> Gym not open </td>
+        <td> Gym not open </td>
+      </tr>
+
+      <tr>
+        <td>Sunday</td>
+        <td><input type="checkbox" name="sunday" value="0" ></td>
+        <td> Gym not open </td>
+        <td><input type="checkbox" name="sunday" value="2"></td>
+        <td><input type="checkbox" name="sunday" value="3"> </td>
+        <td> <input type="checkbox" name="sunday" value="4"></td>
+        <td><input type="checkbox" name="sunday" value="5"> </td>
+        <td><input type="checkbox" name="sunday" value="6"> </td>
+        <td><input type="checkbox" name="sunday" value="7"> </td>
+        <td> <input type="checkbox" name="sunday" value="8"> </td>
+        <td><input type="checkbox" name="sunday" value="9"> </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
 
 <!-- <div class=”weightLifting”>
 What is the highest weight level you will need to be spotted for? (Check one)<br>

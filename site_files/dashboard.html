@@ -16,7 +16,7 @@
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
+    <!-- Custom CSS 
     <link href="css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
@@ -31,43 +31,55 @@
     <script type="text/javascript">
        var doughnutData = [
                 {
-                    value: 300,
+                    value: 5,
                     color:"#F7464A",
                     highlight: "#FF5A5E",
-                    label: "Red"
+                    label: "Dominick"
                 },
                 {
-                    value: 50,
+                    value: 10,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
-                    label: "Green"
+                    label: "Caroline"
                 },
                 {
-                    value: 100,
+                    value: 2,
+                    color: "#83adb5",
+                    highlight: "#b4cdd2",
+                    label: "Alane"
+                },
+                {
+                    value: 3,
                     color: "#FDB45C",
                     highlight: "#FFC870",
-                    label: "Yellow"
-                },
-                {
-                    value: 40,
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
-                    label: "Grey"
-                },
-                {
-                    value: 120,
-                    color: "#4D5360",
-                    highlight: "#616774",
-                    label: "Dark Grey"
+                    label: "Jeff"
                 }
-            ];
+            ];      
 
+        $(document).ready(function() {
 
-        window.onload = function(){
+                
                 var ctx = document.getElementById("chart-area").getContext("2d");
                 window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
-            };
+
+
+        });
+
+        $("#improveMatches").click(function() {
+          window.location.href = "survey";
+        });
+
+      var ctx = $("#myChart").get(0).getContext("2d");
+           
+      function addpoints(x){
+        var points = myDoughnut.getSegmentsAtEvent(x);
+        myDoughnut.segments[0].value=points+1;
+        myDoughnut.update();
+      }
+
     </script>
+
+
 
     <style type="text/css">
 
@@ -79,6 +91,12 @@
     display: block;
     float:left;
     
+}
+
+.navigation{
+    display: inline-block;
+    vertical-align: middle;
+    float:none;
 }
 
 .member
@@ -167,11 +185,14 @@ td
     color: #fff;
 }
 
-.logo{
+.logo,.profile{
   vertical-align: middle;
   margin: 0 40px;
 }
 
+body {
+    margin-top:20;
+}
 
 </style>
 
@@ -183,8 +204,15 @@ td
 
 <div class="row">
   <div class="col-md-2">
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+      <div class="collapse navbar-collapse navbar-ex1-collapse navigation">
+                <ul class="nav navbar-nav side-nav navigation">
+                    
+                     <li>
+                        
+                        <img class="img-circle profile" border="0" src="./icon/gymemotions.jpg" width="180" height="180" id="profilePic">
+                        
+                    </li>
+
                     <li>
                         <a href="#" style="color: white" id="updateProfile"><i class="fa fa-fw fa-dashboard"></i> Update Your Profile</a>
                     </li>
@@ -209,27 +237,49 @@ td
             </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-3">
+
+  <h2 class="text-center">Welcome back!</h2>
+  <h3 class="text-center">Who did you exercise with today?</h3>
   
-  <div id="canvas-holder">
-            <canvas id="chart-area" width="500" height="500"/>
+  <div id="exerciseChart">
+            <canvas id="chart-area" width="400" height="400"/>
         </div>
        
+  <br>
+  
+          <div class="updateChart text-center">
+             <p class="text-center">
+               Today I exercised with:
+             </p>
+            
+            <input class="btn btn-default" type="button" value="Dominic" onclick="addpoints('name1');" id="name1"> 
+
+            <input class="btn btn-default" type="button" value="Caroline" id="name2"> 
+
+            <input class="btn btn-default " type="button" value="Jeff" id="name3"> 
+
+            <input class="btn btn-default" type="button" value="Alane" id="name4"> 
+        </div>        
+
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-7">
   <div class="square">
           <div class="col-md-6">
                 <div class="panel panel-default">
+                  
                   <div class="panel-body">
-                    <p class="text-center" id="name">Dominick</p>
+                    <img class="img-circle center-block" src="./icon/petwork5.png" id="friend1" height="200" weight="200"></img>
+                    <p class="text-center" id="name1">Dominick</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
                 </div>
 
                 <div class="panel panel-default">
                   <div class="panel-body">
-                   <p class="text-center" id="name">Caroline</p>
+                  <img class="img-circle center-block" src="./icon/petwork5.png" id="friend2" height="200" weight="200"></img>
+                   <p class="text-center" id="name2">Caroline</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
                 </div>
@@ -238,14 +288,16 @@ td
           <div class="col-md-6">
             <div class="panel panel-default">
               <div class="panel-body">
-               <p class="text-center" id="name">Jeff</p>
+              <img class="img-circle center-block" src="./icon/petwork5.png" id="friend3" height="200" weight="200"></img>
+               <p class="text-center" id="name3">Jeff</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
             </div>
 
             <div class="panel panel-default">
                   <div class="panel-body">
-                   <p class="text-center" id="name">Alane</p>
+                  <img class="img-circle center-block" src="./icon/petwork5.png" id="friend4" height="200" weight="200"></img>
+                   <p class="text-center" id="name4">Alane</p>
                     <p class="text-center" id="activities">Running, Biking, Yoga, Streching, Hiking, Weight Lifting, Fitness Class</p>
                 </div>
                 </div>
