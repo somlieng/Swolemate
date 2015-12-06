@@ -28,46 +28,29 @@
     <!-- chart.js -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+ 
+
     <script type="text/javascript">
-       var doughnutData = [
-                {
-                    value: 300,
-                    color:"#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Red"
-                },
-                {
-                    value: 50,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green"
-                },
-                {
-                    value: 100,
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
-                    label: "Yellow"
-                },
-                {
-                    value: 40,
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
-                    label: "Grey"
-                },
-                {
-                    value: 120,
-                    color: "#4D5360",
-                    highlight: "#616774",
-                    label: "Dark Grey"
-                }
-            ];
+    // info holds all of the user's data
+    var info;
+$(document).ready(function() {
+  $(document).ajaxError(function() {
+    alert("Sorry, there was a problem!");
+  });
+      $.ajax({
+      url: "matches/",
+      type: "GET",
+      dataType : "json", 
+      data : {},
+      success: function( data ) {
+        console.log("You received some data!", data);
+        info = data;
+   
+    }
+});
+});
 
-
-        window.onload = function(){
-                var ctx = document.getElementById("chart-area").getContext("2d");
-                window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
-            };
-    </script>
+</script>
 
     <style type="text/css">
 

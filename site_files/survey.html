@@ -173,6 +173,26 @@ $(document).ready(function () {
 
     $("#submit").click(function() {
       var answersActivities = answersStr('activities');
+      var answersGenderpartner = answersStr('genderpartner');
+        var answersMonday = answersStr('monday');
+         var answersTuesday = answersStr('tuesday');
+          var answersWednesday = answersStr('wednesday');
+           var answersThursday = answersStr('thursday');
+           var answersFriday = answersStr('friday');
+           var answersSaturday = answersStr('satday');
+           var answersSunday = answersStr('sunday');
+      var answersCardioact = answersStr('cardioact');
+      var answersCardiopartner = answersStr('cardiopartner');
+      var answersRunloc = answersStr('runloc');
+      var answersClasspart = answersStr('classpart');
+      var answersClasspartexp = answersStr('classpartexp');
+      var answersBasketpartexp = answersStr('basketpartexp');
+      var answersTennispartexp = answersStr('tennispartexp');
+      var answersBadmintonpartexp = answersStr('badmintonpartexp');
+      var answersSquashpartexp = answersStr('squashpartexp');
+       var answersSoccerpartexp = answersStr('soccerpartexp');
+      
+
       console.log(answersActivities);
     // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
     // Using the core $.ajax() method
@@ -184,39 +204,39 @@ $(document).ready(function () {
       dataType : "text", // this URL returns data in JSON format
       data : {
           username: localStorage.getItem("username"),
-          activities: $( 'input[name="activities"]:checked').val(),
+          activities: answersActivities,
             gender: $('input[name="gender"]:checked').val(),
-               genderpartner: $('input[name="genderpartner"]:checked').val(),
+               genderpartner: answersGenderpartner,
                intensity: $('input[name="intensity"]:checked').val(),
-               monday: $('input[name="monday"]:checked').val(),
-               tuesday: $('input[name="tuesday"]:checked').val(),
-               wednesday: $('input[name="wednesday"]:checked').val(),
-               thursday: $('input[name="thursday"]:checked').val(),
-               friday: $('input[name="friday"]:checked').val(),
-               saturday: $('input[name="saturday"]:checked').val(),
-               sunday: $('input[name="sunday"]:checked').val(),
+               monday: answersMonday,
+               tuesday: answersTuesday,
+               wednesday: answersWednesday,
+               thursday: answersThursday,
+               friday: answersFriday,
+               saturday: answersSaturday,
+               sunday: answersSunday,
                highest: $('input[name="highest"]:checked').val(),
                spotting: $('input[name="spotting"]:checked').val(),
                runtime: $('input[name="runtime"]:checked').val(),
-               runloc: $('input[name="runloc"]:checked').val(),
-               cardioact: $('input[name="cardioact"]:checked').val(),
-               cardiopartner: $('input[name="cardiopartner"]:checked').val(),
+               runloc: answersRunloc,
+               cardioact: answersCardioact,
+               cardiopartner: answersCardiopartner,
                cardiotime: $('input[name="cardiotime"]:checked').val(),
                basketexp: $('input[name="basketexp"]:checked').val(),
-               basketpartexp: $('input[name="basketpartexp"]:checked').val(),
+               basketpartexp: answersBasketpartexp,
                soccerexp: $('input[name="soccerexp"]:checked').val(),
-               soccerpartexp: $('input[name="soccerpartexp"]:checked').val(),
+               soccerpartexp: answersSoccerpartexp,
                tennisexp: $('input[name="tennisexp"]:checked').val(),
-               tennispartexp: $('input[name="tennispartexp"]:checked').val(),
+               tennispartexp: answersTennispartexp,
                badmintonexp: $('input[name="badmintonexp"]:checked').val(),
-               badmintonpartexp: $('input[name="badmintonpartexp"]:checked').val(),
+               badmintonpartexp: answersBadmintonpartexp,
                squashexp: $('input[name="squashexp"]:checked').val(),
-               squashpartexp: $('input[name="squashpartexp"]:checked').val(),
+               squashpartexp: answersSquashpartexp,
                swimtime: $('input[name="swimtime"]:checked').val(),
                swimrace: $('input[name="swimrace"]:checked').val(),
-               classpart: $('input[name="classpart"]:checked').val(),
+               classpart: answersClasspart,
                classexp: $('input[name="classexp"]:checked').val(),
-               classpartexp: $('input[name="classpartexp"]:checked').val()
+               classpartexp: answersClasspartexp
              },
       success: function( data ) {
         console.log("You received some data!", data);
@@ -235,7 +255,7 @@ function answersStr(name)
 
 {
 
-var checkboxes = document.getElementsByName('activities');
+var checkboxes = document.getElementsByName(name);
 var vals = "";
 for (var i=0, n=checkboxes.length;i<n;i++) {
   if (checkboxes[i].checked) 

@@ -31,7 +31,7 @@ var db = new sqlite3.Database(file);
 
 db.serialize(function() {
   if(!exists){
-    db.run("CREATE TABLE users (email TEXT, password TEXT, username TEXT, firstname TEXT, activities TEXT, gender TEXT,genderpartner TEXT, intensity TEXT,monday INT, tuesday INT, wednesday INT, thursday INT, friday INT, saturday INT, sunday INT,highest INT, spotting INT,runtime INT, runloc TEXT, cardioact TEXT, cardiopartner TEXT, cardiotime INT,basketexp INT, basketpartexp INT, soccerexp INT, soccerpartexp INT, tennisexp INT, tennispartexp INT, badmintonexp INT, badmintonpartexp INT, squashexp INT, squashpartexp INT, swimtime INT, swimrace INT, classpart TEXT, classexp INT, classpartexp INT)");
+    db.run("CREATE TABLE users (email TEXT, password TEXT, username TEXT, firstname TEXT, activities TEXT, gender TEXT,genderpartner TEXT, intensity TEXT,monday TEXT, tuesday TEXT, wednesday TEXT, thursday TEXT, friday TEXT, saturday TEXT, sunday TEXT,highest TEXT, spotting TEXT,runtime TEXT, runloc TEXT, cardioact TEXT, cardiopartner TEXT, cardiotime TEXT,basketexp TEXT, basketpartexp TEXT, soccerexp TEXT, soccerpartexp TEXT, tennisexp TEXT, tennispartexp TEXT, badmintonexp TEXT, badmintonpartexp TEXT, squashexp TEXT, squashpartexp TEXT, swimtime TEXT, swimrace TEXT, classpart TEXT, classexp TEXT, classpartexp TEXT)");
 
   }
 });
@@ -152,6 +152,21 @@ app.put('/survey/', function (req, res) {
     console.log("wrote: " + username);
    });
    });
+
+app.get('/matches/', function (req, res) {
+db.each("SELECT * FROM users WHERE username = 'Workout'", function(err, rows){
+    if(!rows){
+      res.send("error, no user");
+    }else{
+      res.send(rows);
+    }
+    
+  });
+
+
+});
+
+
 
 
 
