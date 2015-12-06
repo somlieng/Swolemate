@@ -1,0 +1,307 @@
+<!-- TODO: Didot isn't working as a class. Needs fixed.-->
+<!-- Plan: All items will be on this page, and their opacity will change depending on which option in the toolbar to the left is chosen -->
+
+
+<html>
+<head>
+	<script language="JavaScript" type="text/javascript">
+			var sendReq = getXmlHttpRequestObject();
+			var receiveReq = getXmlHttpRequestObject();
+			var lastMessage = 0;
+			var mTimer;
+			//Function for initializating the page.
+			function startChat() {
+				//Set the focus to the Message Box.
+				document.getElementById('txt_message').focus();
+				//Start Recieving Messages.
+				getChatText();
+			}		
+			//Gets the browser specific XmlHttpRequest Object
+			function getXmlHttpRequestObject() {
+				if (window.XMLHttpRequest) {
+					return new XMLHttpRequest();
+				} else if(window.ActiveXObject) {
+					return new ActiveXObject("Microsoft.XMLHTTP");
+				} else {
+					document.getElementById('p_status').innerHTML = 'Status: Cound not create XmlHttpRequest Object.  Consider upgrading your browser.';
+				}
+			}
+			
+			//Gets the current messages from the server
+			function getChatText() {
+				if (receiveReq.readyState == 4 || receiveReq.readyState == 0) {
+					receiveReq.open("GET", 'getChat.php?chat=1&last=' + lastMessage, true);
+					receiveReq.onreadystatechange = handleReceiveChat; 
+					receiveReq.send(null);
+				}			
+			}
+			//Add a message to the chat server.
+			function sendChatText() {
+				if(document.getElementById('txt_message').value == '') {
+					alert("You have not entered a message");
+					return;
+				}
+				if (sendReq.readyState == 4 || sendReq.readyState == 0) {
+					sendReq.open("POST", 'getChat.php?chat=1&last=' + lastMessage, true);
+					sendReq.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+					sendReq.onreadystatechange = handleSendChat; 
+					var param = 'message=' + document.getElementById('txt_message').value;
+					param += '&name=Ryan Smith';
+					param += '&chat=1';
+					sendReq.send(param);
+					document.getElementById('txt_message').value = '';
+				}							
+			}
+			//When our message has been sent, update our page.
+			function handleSendChat() {
+				//Clear out the existing timer so we don't have 
+				//multiple timer instances running.
+				clearInterval(mTimer);
+				getChatText();
+			}
+			function handleReceiveChat() {
+				if (receiveReq.readyState == 4) {
+					//Get a reference to our chat container div for easy access
+					var chat_div = document.getElementById('div_chat');
+					//Get the AJAX response and run the JavaScript evaluation function
+					//on it to turn it into a useable object.  Notice since we are passing
+					//in the JSON value as a string we need to wrap it in parentheses
+					var response = eval("(" + receiveReq.responseText + ")");
+					for(i=0;i < response.messages.message.length; i++) {
+						chat_div.innerHTML += response.messages.message[i].user;
+						chat_div.innerHTML += '&nbsp;&nbsp;<font class="chat_time">' +  response.messages.message[i].time + '</font><br />';
+						chat_div.innerHTML += response.messages.message[i].text + '<br />';
+						chat_div.scrollTop = chat_div.scrollHeight;
+						lastMessage = response.messages.message[i].id;
+					}
+					mTimer = setTimeout('getChatText();',2000); //Refresh our chat in 2 seconds
+				}
+			}
+			//This functions handles when the user presses enter.  Instead of submitting the form, we
+			//send a new message to the server and return false.
+			function blockSubmit() {
+				sendChatText();
+				return false;
+			}
+			//This cleans out the database so we can start a new chat session.
+			function resetChat() {
+				if (sendReq.readyState == 4 || sendReq.readyState == 0) {
+					sendReq.open("POST", 'getChat.php?chat=1&last=' + lastMessage, true);
+					sendReq.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+					sendReq.onreadystatechange = handleResetChat; 
+					var param = 'action=reset';
+					sendReq.send(param);
+					document.getElementById('txt_message').value = '';
+				}							
+			}
+			//This function handles the response after the page has been refreshed.
+			function handleResetChat() {
+				document.getElementById('div_chat').innerHTML = '';
+				getChatText();
+			}	
+		</script>
+
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Running</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Custom CSS 
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+    <style type="text/css">
+
+.toplogo
+{
+    margin:3px 0px 0px 550px;
+    height:110px;
+    width:110px;
+    display: block;
+    float:left;
+    
+}
+
+.navigation{
+    display: inline-block;
+    vertical-align: middle;
+    float:none;
+}
+
+.member
+{
+margin:45px 20px 0px 0px;
+font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+display: block;
+font-size:130%;
+color:white;
+float:right;
+}
+
+.login
+{
+    margin:38px 50px 0px 0px;
+    float:right;
+    height:40px;
+    width:150px;
+    border: 1px solid black;
+}
+
+
+
+.didot
+{
+    font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+    
+}
+
+.menu
+{
+    float:left;
+    width:20%;
+    font-size:130%;
+    padding-top: 20px;
+}
+
+td
+{
+    border: 1px solid black;
+    font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+}
+
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 0;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color:  #152b39;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #000 !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+.logo,.profile{
+  vertical-align: middle;
+  margin: 0 40px;
+}
+
+body {
+    margin-top:20;
+}
+
+</style>
+
+</head>
+<body onLoad="javascript:startChat();">
+
+    
+<div class="content">
+
+<div class="row">
+  <div class="col-md-2">
+      <div class="collapse navbar-collapse navbar-ex1-collapse navigation">
+                <ul class="nav navbar-nav side-nav navigation">
+                    
+                     <li>
+                        
+                        <img class="img-circle profile" border="0" src="./icon/gymemotions.jpg" width="180" height="180" id="profilePic">
+                        
+                    </li>
+
+                    <li>
+                        <a href="#" style="color: white" id="updateProfile"><i class="fa fa-fw fa-dashboard"></i> Update Your Profile</a>
+                    </li>
+                    <li>
+                        <a href="#" style="color: white" id="improveMatches"><i class="fa fa-fw fa-bar-chart-o"></i> Improve Your Matches</a>
+                    </li>
+                    <li>
+                        <a href="#" style="color: white" id="viewMatches"><i class="fa fa-fw fa-table"></i> View Your Matches</a>
+                    </li>
+                     <li>
+                        <a href="\messageboards.html" style="color: white"><i class="fa fa-fw fa-table"></i> Message Boards</a>
+                    </li>
+                    <li>
+                        <a href="#" style="color: white" id="logoutButton"><i class="fa fa-fw fa-table"></i> Logout</a>
+                    </li>
+                
+                    <li>
+                        
+                        <img class="logo" border="0" src="./icon/SwoleMateIcon.png" width="100" height="100" id="homeButton">
+                        
+                    </li>
+                    
+                </ul>
+
+            </div>
+  </div>
+
+  <div class="col-md-3">
+		Current Chitter-Chatter:
+		<div id="div_chat" style="height: 300px; width: 500px; overflow: auto; background-color: #CCCCCC; border: 1px solid #555555;">
+			
+		</div>
+		<form id="frmmain" name="frmmain" onSubmit="return blockSubmit();">
+			<input type="button" name="btn_get_chat" id="btn_get_chat" value="Refresh Chat" onClick="javascript:getChatText();" />
+			<input type="text" id="txt_message" name="txt_message" style="width: 447px;" />
+			<input type="button" name="btn_send_chat" id="btn_send_chat" value="Send" onClick="javascript:sendChatText();" />
+		</form>
+
+  
+  </div>
+
+<!-- These questions aren't finished, nor are they the correct questions we should be asking. We need a better way to enumerate these values. Still working on it -->
+
+
+
+
+    </body>
+    </html>
+
