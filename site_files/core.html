@@ -46,7 +46,7 @@
 					sendReq.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 					sendReq.onreadystatechange = handleSendChat; 
 					var param = 'message=' + document.getElementById('txt_message').value;
-					param += '&name=Ryan Smith';
+					param += '&name=localstorage.getItem('username')';
 					param += '&chat=1';
 					sendReq.send(param);
 					document.getElementById('txt_message').value = '';
@@ -142,6 +142,12 @@
     float:none;
 }
 
+.sup{
+text-align: center;
+font-size: 2.5em;
+font-family:;
+}
+
 .member
 {
 margin:45px 20px 0px 0px;
@@ -233,6 +239,27 @@ td
   margin: 0 40px;
 }
 
+.btn {
+	-moz-box-shadow: 3px 4px 0px 0px #899599;
+	-webkit-box-shadow: 3px 4px 0px 0px #899599;
+	box-shadow: 3px 4px 0px 0px #899599;
+	background-color:transparent;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:1px solid #d6bcd6;
+	display:inline-block;
+	cursor:pointer;
+	color:#3a8a9e;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
+}
+
+
+
 body {
     margin-top:20;
 }
@@ -283,15 +310,15 @@ body {
             </div>
   </div>
 
-  <div class="col-md-3">
-		Current Chitter-Chatter:
-		<div id="div_chat" style="height: 300px; width: 500px; overflow: auto; background-color: #CCCCCC; border: 1px solid #555555;">
+  <div class="col-md-3"><div class="sup">
+		Core Strength Chatroom</div>
+		<div id="div_chat" style="height: 300px; width: 500px; overflow: auto; background-color: #ecf2f8; border: 1.5px solid #555555;">
 			
 		</div>
-		<form id="frmmain" name="frmmain" onSubmit="return blockSubmit();">
-			<input type="button" name="btn_get_chat" id="btn_get_chat" value="Refresh Chat" onClick="javascript:getChatText();" />
-			<input type="text" id="txt_message" name="txt_message" style="width: 447px;" />
-			<input type="button" name="btn_send_chat" id="btn_send_chat" value="Send" onClick="javascript:sendChatText();" />
+		<form id="frmmain" name="frmmain" onSubmit="return blockSubmit();"><br>
+			<input type="text" id="txt_message" name="txt_message" style="width: 447px;" /><br>
+			<input type="button" class="btn" name="btn_send_chat" id="btn_send_chat" value="Send" onClick="javascript:sendChatText();" />
+			<input type="button" class="btn" name="btn_get_chat" id="btn_get_chat" value="Refresh Chat" onClick="javascript:getChatText();" />
 		</form>
 
   
