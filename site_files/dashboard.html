@@ -16,7 +16,7 @@
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
+    <!-- Custom CSS 
     <link href="css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
@@ -31,25 +31,25 @@
     <script type="text/javascript">
        var doughnutData = [
                 {
-                    value: 30,
+                    value: 5,
                     color:"#F7464A",
                     highlight: "#FF5A5E",
                     label: "Dominick"
                 },
                 {
-                    value: 50,
+                    value: 10,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Caroline"
                 },
                 {
-                    value: 20,
+                    value: 2,
                     color: "#83adb5",
                     highlight: "#b4cdd2",
                     label: "Alane"
                 },
                 {
-                    value: 10,
+                    value: 3,
                     color: "#FDB45C",
                     highlight: "#FFC870",
                     label: "Jeff"
@@ -58,17 +58,24 @@
 
         $(document).ready(function() {
 
-            
+                
                 var ctx = document.getElementById("chart-area").getContext("2d");
                 window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
 
+
+        });
+
+        $("#improveMatches").click(function() {
+          window.location.href = "survey";
         });
 
       var ctx = $("#myChart").get(0).getContext("2d");
-
-         $(".dropdownMenu").click(function() {
-            alert("HEY YOU CLICKED ME")
-        });   
+           
+      function addpoints(x){
+        var points = myDoughnut.getSegmentsAtEvent(x);
+        myDoughnut.segments[0].value=points+1;
+        myDoughnut.update();
+      }
 
     </script>
 
@@ -183,10 +190,9 @@ td
   margin: 0 40px;
 }
 
-.content{
-  
+body {
+    margin-top:20;
 }
-
 
 </style>
 
@@ -241,25 +247,20 @@ td
         </div>
        
   <br>
-  <div class="panel panel-default">
-    <div class="panel-body">
-        <div class="updateChart">
-            Today I exercised with 
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              People <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-            <br>
-        <input class="btn btn-default updateButton" type="button" value="Update Chart"> 
-        </div>          
-    </div>
-  </div>
+  
+          <div class="updateChart text-center">
+             <p class="text-center">
+               Today I exercised with:
+             </p>
+            
+            <input class="btn btn-default" type="button" value="Dominic" onclick="addpoints('name1');" id="name1"> 
+
+            <input class="btn btn-default" type="button" value="Caroline" id="name2"> 
+
+            <input class="btn btn-default " type="button" value="Jeff" id="name3"> 
+
+            <input class="btn btn-default" type="button" value="Alane" id="name4"> 
+        </div>        
 
   </div>
 

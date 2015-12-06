@@ -109,6 +109,7 @@ td
 
 @media(min-width:768px) {
     .side-nav {
+        margin:0 auto;
         position: fixed;
         top: 0;
         left: 225px;
@@ -156,6 +157,9 @@ td
   margin: 0 40px;
 }
 
+body {
+    margin:auto;
+}
 
 </style>
 
@@ -280,7 +284,14 @@ return vals;
 <div class="content">
 
  <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                <ul class="nav navbar-nav side-nav navigation">
+                    
+                     <li>
+                        
+                        <img class="img-circle profile" border="0" src="./icon/gymemotions.jpg" width="180" height="180" id="profilePic">
+                        
+                    </li>
+
                     <li>
                         <a href="#" style="color: white" id="updateProfile"><i class="fa fa-fw fa-dashboard"></i> Update Your Profile</a>
                     </li>
@@ -335,7 +346,8 @@ return vals;
     
     <!-- WEIGHTLIFTING -->
     <input type="checkbox" onclick="showText('spot');" name="activities" value="weight lifting"> Weight Lifting<br>
-        <div style="display:none;" id="spot" class=”weightLifting”>
+        
+        <div style="display:none; margin-left: 20px;" id="spot" class="weightLifting bg-info">
             What is the highest weight level you will need to be spotted for? (Check one)<br>
             <input type="radio" name="highest" value="none"> I don't need to be spotted.<br>
             <input type="radio" name="highest" value="50"> 50LBS<br>
@@ -354,9 +366,10 @@ return vals;
             <input type="radio" name="spotting" value="300"> 300LBS+<br>
         </div>
         
+        
     <!-- CARDIO -->
     <input type="checkbox" onclick="showText('crdio');" name="activities" value="cardio"> Cardio<br>
-        <div style="display:none;" id="crdio" class = “cardio”>
+        <div style="display:none;  margin-left: 20px;" id="crdio" class = "cardio bg-info">
             What cardio activities do you like to do? <br>
             <input type="checkbox" name="cardioact" value="elliptical"> Elliptical
             <input type="checkbox" name="cardioact" value="bike"> Stationary Bike
@@ -378,7 +391,7 @@ return vals;
     
     <!-- RUNNING -->
     <input type="checkbox" onclick="showText('run');" name="activities" value="running"> Running<br>
-        <div style="display:none;" id="run" class=”running”>
+        <div style="display:none;  margin-left: 20px;" id="run" class="running bg-info">
             How much time do you usually run for? (Check one)<br>
             <input type="radio" name="runtime" value="1"> 30min or less<br>
             <input type="radio" name="runtime" value="2"> 30min - 1hr<br>
@@ -394,7 +407,7 @@ return vals;
     
     <!-- CLASSES -->
     <input type="checkbox" onclick="showText('fitClass');" name="activities" value="fitness classes"> Fitness Classes<br>
-        <div style="display:none;" id="fitClass" class = “classes”> 
+        <div style="display:none;  margin-left: 20px;" id="fitClass" class = "classes bg-info"> 
             What classes do you want a partner for?<br>
             <input type="checkbox" name="classpart" value="yoga"> Yoga<br>
             <input type="checkbox" name="classpart" value="pilates"> Pilates<br>
@@ -415,7 +428,7 @@ return vals;
     
     <!-- BASKETBALL -->
     <input type="checkbox" onclick="showText('bball');" name="activities" value="basketball"> Basketball<br>
-        <div style="display: none;" id="bball" class = “basketball”>
+        <div style="display: none;  margin-left: 20px;" id="bball" class = "basketball bg-info">
             What is your experience level?<br>
             <input type="radio" name="basketexp" value="1"> Beginner<br>
             <input type="radio" name="basketexp" value="2"> Intermediate<br>
@@ -429,7 +442,7 @@ return vals;
     
     <!-- TENNIS -->
     <input type="checkbox" onclick="showText('tennis');" name="activities" value="tennis"> Tennis<br>
-        <div style="display:none;" id="tennis" class = “tennis”> 
+        <div style="display:none;  margin-left: 20px;" id="tennis" class = "tennis bg-info"> 
             What is your experience level?<br>
             <input type="radio" name="tennisexp" value="1"> Beginner<br>
             <input type="radio" name="tennisexp" value="2"> Intermediate<br>
@@ -443,7 +456,7 @@ return vals;
         
     <!-- BADMINTON -->
     <input type="checkbox" onclick="showText('bad');" name="activities" value="badminton"> Badminton<br>
-        <div style="display:none;" id="bad" class = “badminton”> 
+        <div style="display:none;  margin-left: 20px;" id="bad" class = "badminton bg-info"> 
             What is your experience level?<br>
             <input type="radio" name="badmintonexp" value="1"> Beginner<br>
             <input type="radio" name="badmintonexp" value="2"> Intermediate<br>
@@ -457,7 +470,7 @@ return vals;
         
     <!-- SQUASH -->
     <input type="checkbox" onclick="showText('sqsh');" name="activities" value="squash"> Squash<br>
-        <div style="display:none;" id="sqsh" class = “squash”>
+        <div style="display:none;  margin-left: 20px;" id="sqsh" class = "squash bg-info">
             What is your experience level?<br>
             <input type="radio" name="squashexp" value="1"> Beginner<br>
             <input type="radio" name="squashexp" value="2"> Intermediate<br>
@@ -471,7 +484,7 @@ return vals;
         
     <!-- SWIMMING -->
     <input type="checkbox" onclick="showText('swim');" name="activities" value="swimming"> Swimmming<br>
-        <div style="display:none;" id="swim" class = “swimming”> 
+        <div style="display:none;  margin-left: 20px;" id="swim" class = "swimming bg-info"> 
             How long do you usually swim for? <br>
             <input type="radio" name="swimtime" value="1"> 30min or less<br>
             <input type="radio" name="swimtime" value="2"> 30min - 1hr<br>
@@ -485,7 +498,7 @@ return vals;
     
     <!-- SOCCER -->
     <input type="checkbox" onclick="showText('sccr');" name="activities" value=""> Soccer<br>
-        <div style="display:none;" id="sccr" class = “soccer”> 
+        <div style="display:none;  margin-left: 20px;" id="sccr" class = "soccer bg-info"> 
             What is your experience level?<br>
             <input type="radio" name="soccerexp" value="1"> Beginner<br>
             <input type="radio" name="soccerexp" value="2"> Intermediate<br>
@@ -522,6 +535,7 @@ Monday Availability:
     <input type="checkbox" name="monday" value="7"> 6pm-8pm
      <input type="checkbox" name="monday" value="8"> 8pm-10pm
      <input type="checkbox" name="monday" value="9"> 10pm-11pm<br>
+     
 Tuesday Availability:
  <input type="checkbox" name="tuesday" value="0"> None
   <input type="checkbox" name="tuesday" value="1"> 6:30am-8am
