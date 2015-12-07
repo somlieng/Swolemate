@@ -32,20 +32,50 @@
 
     <script type="text/javascript">
     // info holds all of the user's data
-    var info;
 $(document).ready(function() {
+    var user;
+    var info = [];
+    
   $(document).ajaxError(function() {
     alert("Sorry, there was a problem!");
   });
+  
+  $("#logoutButton").click(function(){
+      localStorage.removeItem("username");
+      localStorage.removeItem("password");
+      window.location="./home.html";
+  });
+  
+  $("#improveMatches").click(function(){
+      window.location="./survey.html";
+  });
+  
+  $("#viewMatches").click(function(){
+      window.location="./matches.html";
+  });
+  
       $.ajax({
       url: "matches/",
-      type: "GET",
+      type: "POST",
       dataType : "json", 
-      data : {},
+      data : {
+          username: localStorage.getItem('username')
+      },
       success: function( data ) {
         console.log("You received some data!", data);
-        info = data;
-   
+        console.log(data.usernames);
+        
+        // user=data.username;
+        // info.push(data.activities, data.intensity, data.monday, data.tuesday, data.wednesday, data.thursday, data.friday, data.saturday, data.sunday);
+        // var activitiesArray=info[0].split(',');
+        // var intensityArray=info[1];
+        // var mondayArray=info[2].split(',');
+        // var tuesdayArray=info[3].split(',');
+        // var wednesdayArray=info[4].split(',');
+        // var thursdayArray=info[5].split(',');
+        // var fridayArray=info[6].split(',');
+        // var saturdayArray=info[7].split(',');
+        // var sundayArray=info[8].split(',');
     }
 });
 });
