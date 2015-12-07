@@ -42,12 +42,6 @@ float:right;
   border: 1px solid black;
 }
 
-.didot
-{
-  font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
-  text-align: center;
-}
-
 .container{
     display: table;
       padding-top: 15px;
@@ -98,6 +92,7 @@ float:right;
 #signup-panel{
   max-width: 500;
 }
+
 
 
 
