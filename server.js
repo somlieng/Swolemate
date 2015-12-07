@@ -148,27 +148,66 @@ app.put('/survey/', function (req, res) {
     db.run("UPDATE users SET activities = \"" + activities + "\",gender = \"" + gender + "\", genderpartner = \"" + genderpartner + "\", intensity= \"" + intensity + "\", monday= \"" + monday + "\", tuesday= \"" + tuesday + "\", wednesday= \"" + wednesday + "\", thursday= \"" + thursday + "\", friday= \"" + friday + "\", saturday= \"" + saturday + "\", sunday= \"" + sunday + "\",  highest= \"" + highest + "\",  spotting= \"" + spotting + "\",  runtime= \"" + runtime + "\",  runloc= \"" + runloc+ "\", cardioact= \"" + cardioact + "\", cardiopartner= \"" + cardiopartner + "\",  cardiotime= \"" + cardiotime + "\",  basketexp= \"" + basketexp + "\",  basketpartexp= \"" + basketpartexp + "\",  soccerexp= \"" + soccerexp + "\", soccerpartexp= \"" + soccerpartexp + "\", tennisexp= \"" + tennisexp + "\", tennispartexp= \"" + tennispartexp + "\", badmintonexp= \"" + badmintonexp + "\", badmintonpartexp= \"" + badmintonpartexp + "\", squashexp= \"" + squashexp + "\", squashpartexp= \"" + squashpartexp + "\", swimtime= \"" + swimtime + "\", swimrace= \"" + swimrace + "\", classpart= \"" + classpart + "\", classexp= \"" + classexp + "\", classpartexp= \"" + classpartexp + "\" WHERE username = \"" + username + "\"", function(err,result)
 
  {
-    console.log("wrote: " + activities);
     console.log("wrote: " + username);
    });
    });
 
-app.get('/matches/', function (req, res) {
-db.each("SELECT * FROM users WHERE username = 'Workout'", function(err, rows){
+app.post('/matches/', function (req, res) {
+  var postBody = req.body;
+  var username = postBody.username;
+  var nonuserActivities = [];
+db.each("SELECT * FROM users WHERE username = '"+username+"'",function(err, rows){
     if(!rows){
       res.send("error, no user");
+      return;
     }else{
-      res.send(rows);
-    }
+      var activitiesArray = rows.activities.split(',');
+      var intensity = intensity = rows.intensity;
+      var mondayArray = rows.monday.split(',');
+      var tuesdayArray = rows.tuesday.split(',');
+      var wednesdayArray = rows.wednesday.split(',');
+      var thursdayArray = rows.thursday.split(',');
+      var fridayArray = rows.friday.split(',');
+      var saturdayArray = rows.saturday.split(',');
+      var sundayArray = rows.sunday.split(',');
+      console.log(activitiesArray);
+      
+      db.each("SELECT username, activities FROM users WHERE username !='" +username+"'", function(err, rowstwo){
+        if(!rowstwo){
+          console.log("nothing");
+          res.send("error");
+          return;
+        }else{
+          nonuserActivities.push(rowstwo);
+        }
+        },
+        function(err,comp){
+          console.log(comp);    //comp = activitiesArray
+          var usernamesArray=[];
+          //if any of the users share an activity with the loggedIn user, push that user's username into usernamesArray(these are the loggedIn user's matches)
+          for(var y=0; y<nonuserActivities.length; y++){
+            var array = nonuserActivities[y].activities.split(',');
+            if(compareArray(array, activitiesArray) == "yes"){
+              usernamesArray.push(nonuserActivities[y].username);
+            }
+          }
+          
+          console.log('sending');
+          res.send({usernames: usernamesArray});
+        });
+      }
+    });
     
+    //do the two arrays share a number in common
+    function compareArray(arrOne, arrTwo){
+      for(var i = 0; i < arrOne.length; i++)
+        for(var j = 0; j < arrTwo.length; j++){
+          if(arrOne[i] == arrTwo[j])
+            return "yes";
+        }
+        return "no";
+    }
   });
-
-
-});
-
-
-
-
 
 // start the server on http://localhost:1111/
 var server = app.listen(1111, function () {
